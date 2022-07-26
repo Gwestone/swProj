@@ -1,0 +1,93 @@
+@import "../../assets/css/calc";
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdownContent {
+    background: #ffffff;
+    width: fit-content;
+    height: fit-content;
+    right: -60px;
+    box-shadow: 0px 0px 50px -30px rgba(0,0,0,0.5);
+    display: none;
+    position: absolute;
+    min-width: 140px;
+    top: 40px;
+}
+
+.btn{
+    width: fit-content;
+    height: 60px;
+    padding: 10px;
+    margin-top: -5px;
+    background: none;
+    border: none;
+}
+
+/*.btn:active{*/
+/*    background: #ffffff;*/
+/*}*/
+
+.currencyIcon{
+    width: fit-content;
+    height: fit-content;
+
+    display: inline;
+    /* --price-regular-font */
+
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 160%;
+    margin-right: calc-width(10px);
+    /* identical to box height, or 29px */
+
+    align-items: flex-end;
+
+}
+
+/* Links inside the dropdown */
+.dropdownContent a {
+    color: black;
+    padding: 25px 30px;
+    text-decoration: none;
+    display: block;
+    font-family: "Raleway", serif;
+    font-weight: 500;
+    font-size: 23px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdownContent a:hover {
+    background: #fafafa;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .btn {
+    background: #fafafa;
+}
+
+.arrow{
+    width: calc-width(7px);
+    height: calc-height(5px);
+    left: 2px;
+    bottom: 2px;
+    position: relative;
+    margin-right: calc-width(4px);
+
+    transition: all 0.4s ease;
+    transform: rotateZ(0deg);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .arrow {
+    transition: all 0.4s ease;
+    transform: rotateZ(180deg);
+}

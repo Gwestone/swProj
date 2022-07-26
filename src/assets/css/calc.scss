@@ -1,0 +1,12 @@
+$widthCoeff: calc(1920 / 1444);
+$heightCoeff: calc(calc(1080 - 108) / 700);
+
+@function calc-height($templHeight){
+  $result: calc(#{$templHeight} * #{$heightCoeff});
+  @return $result;
+}
+
+@function calc-width($templWidth){
+  $result: calc(#{$templWidth} * #{$heightCoeff});
+  @return $result;
+}

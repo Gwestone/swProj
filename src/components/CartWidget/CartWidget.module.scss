@@ -1,0 +1,364 @@
+@import "../../assets/css/calc";
+
+.dropdown {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+}
+.dropdownContent {
+    background: #ffffff;
+    width: fit-content;
+    height: fit-content;
+    right: -60px;
+    box-shadow: 0px 0px 90px -30px rgba(0,0,0,0.5);
+    display: none;
+    position: absolute;
+    min-width: 300px;
+    min-height: fit-content;
+}
+
+.icon{
+    width: calc-width(19px);
+    height: calc-height(19px);
+}
+
+.btn{
+    margin-top: calc-height(9px);
+    background: none;
+    border: none;
+}
+
+.btn:active{
+    background: #ffffff;
+}
+
+/* Links inside the dropdown */
+.dropdownContent a {
+    color: black;
+    padding: 20px 30px;
+    text-decoration: none;
+    display: block;
+    font-family: "Raleway", serif;
+    font-weight: 500;
+    font-size: 21px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .btn {
+    background: #fafafa;
+}
+.myBag{
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 160%;
+    /* identical to box height, or 26px */
+
+    text-align: left;
+    display: inline;
+
+    color: #1D1F22;
+}
+
+.itemsCount{
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 160%;
+    /* identical to box height, or 26px */
+
+    text-align: left;
+    display: inline;
+
+    color: #1D1F22;
+}
+
+.item{
+    margin-top: 40px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 180px 1fr 1fr;
+}
+
+.title{
+    margin-left: 16px;
+    margin-top: calc-height(30px);
+}
+
+.itemTitle{
+    width: fit-content;
+    height: fit-content;
+
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 160%;
+    /* or 26px */
+
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.itemImgContainer{
+    width: fit-content;
+    height: fit-content;
+    margin-right: 25px;
+}
+
+.itemImg{
+    width: 150px;
+    height: 250px;
+}
+
+.container{
+    margin-top: 32px;
+}
+
+.itemPrice{
+    margin-top: 7px;
+    margin-bottom: 20px;
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 600;
+    left: 0;
+    padding-top: 5px;
+    font-size: 21px;
+
+    /* identical to box height, or 26px */
+
+    text-align: left;
+
+    color: #1D1F22;
+}
+
+.itemSize{
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 18px;
+    /* identical to box height, or 114% */
+    display: flex;
+
+    color: #1D1F22;
+}
+.controls{
+    margin-left: 16px;
+}
+
+.itemSizeSelector{
+    width: fit-content;
+}
+
+.itemSizeSelector>button{
+    display: inline;
+    background: #FFFFFF;
+    border: #1D1F22 solid 2px;
+    width: 32px;
+    height: 32px;
+    margin-right: 9px;
+}
+
+.itemSizeSelector>button:hover{
+    background: #1D1F22;
+    border: #1D1F22 solid 2px;
+    color: #FFFFFF;
+}
+
+.itemSizeSelector>button.active{
+    background: #1D1F22;
+    border: #1D1F22 solid 2px;
+    color: #FFFFFF;
+}
+
+.itemColor{
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 18px;
+    /* identical to box height, or 114% */
+    display: flex;
+
+    color: #1D1F22;
+}
+
+.itemColorSelector{
+    width: fit-content;
+}
+
+.itemColorSelector>button{
+    display: inline;
+    border: #FFFFFF solid 1px;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.itemColorSelector>button.active{
+    box-shadow: 0 0 0 2px #5ECE7B;
+}
+
+.itemColorSelector>button:hover{
+    box-shadow: 0 0 0 2px #5ECE7B;
+}
+
+.itemCount{
+    display: grid;
+    grid-gap: 60px;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.itemPlus{
+    float: top;
+}
+
+.itemCountDisplay{
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    /* identical to box height, or 26px */
+
+    text-align: right;
+
+    color: #1D1F22;
+    margin: 15px;
+}
+
+.itemMinus{
+    float: bottom;
+    padding-bottom: 4px;
+}
+
+.itemCount>button{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 6px;
+    background: #FFFFFF;
+    border: #1D1F22 solid 2px;
+    width: 32px;
+    height: 32px;
+    margin: 5px;
+    font-weight: 300;
+    font-size: 40px;
+    font-family: Raleway, serif;
+}
+
+.itemCount>button:hover{
+    background: #1D1F22;
+    border: #1D1F22 solid 2px;
+    color: #FFFFFF;
+}
+
+.total{
+    width: fit-content;
+    height: fit-content;
+    float: left;
+    display: inline;
+
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 18px;
+    margin-left: 20px;
+
+    color: #1D1F22;
+}
+
+.sum{
+    width: fit-content;
+    height: fit-content;
+    float: right;
+    display: inline;
+
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 18px;
+
+    color: #1D1F22;
+}
+.priceLabel{
+    padding: 40px 40px 40px 10px;
+}
+
+.buttons{
+    margin: 20px;
+    margin-right: 25px;
+}
+
+.viewButton{
+    width: fit-content;
+    height: fit-content;
+    float: left;
+    display: inline;
+
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 12px;
+    padding-left: 42px;
+    padding-right: 42px;
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+
+    background: #FFFFFF;
+    border: #1D1F22 solid 2px;
+
+    color: #1D1F22;
+}
+
+.viewButton:hover{
+    background: #1D1F22;
+    color: #FFFFFF;
+}
+
+.checkOutButton{
+    width: fit-content;
+    height: fit-content;
+    float: right;
+    display: inline;
+
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+
+    text-transform: uppercase;
+
+    padding: 12px;
+    padding-left: 38px;
+    padding-right: 38px;
+    margin-bottom: 20px;
+
+    background: #5ECE7B;
+    border: #5ECE7B solid 2px;
+
+    color: #FFFFFF;
+}
+
+.checkOutButton:hover{
+    background: #4fad66;
+    border: #4fad66 solid 2px;
+}
