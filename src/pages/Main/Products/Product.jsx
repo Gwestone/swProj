@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./product.module.scss";
+import styles from "../Main.module.scss";
 import buyIcon from "../../../assets/svg/buyIcon.svg";
 import { connect } from "react-redux";
 
@@ -19,7 +19,11 @@ class Product extends Component {
           <div className={styles.buyIconContainer}>
             <img className={styles.buyIcon} src={buyIcon} alt="" />
           </div>
-          <img className={styles.cardImage} src={data.gallery[0]}></img>
+          <img
+            className={styles.cardImage}
+            src={data.gallery[0]}
+            alt={""}
+          ></img>
           <br />
           <div className={styles.cardTitle}>{data.name}</div>
           <h5 className={styles.cardPrice}>

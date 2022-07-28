@@ -1,26 +1,22 @@
 import { Component } from "react";
 import styles from "./Navbar.module.scss";
 import logo from "../../assets/svg/logo.svg";
-import Currency from "../Currency/Currency";
-import CartWidget from "../CartWidget/CartWidget";
-import Categories from "./categories/Categories";
+import Currency from "./Currency/Currency";
+import CartOverlay from "./CartOverlay/CartOverlay";
+import Categories from "./Categories/Categories";
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className={styles.navbar}>
         <Categories />
-        <img src={logo} className={styles.icon}></img>
+        <img src={logo} className={styles.icon} alt={""}></img>
         <ul className={styles.rightCategories}>
           <li>
             <Currency />
           </li>
           <li>
-            <CartWidget />
+            <CartOverlay />
           </li>
           <li></li>
         </ul>

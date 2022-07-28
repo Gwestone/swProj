@@ -1,13 +1,9 @@
-import styles from "./CartWidget.module.scss";
+import styles from "./CartOverlay.module.scss";
 import { Component } from "react";
-import cart from "../../assets/svg/cart.svg";
-import img from "../../assets/png/img2.png";
+import cart from "../../../assets/svg/cart.svg";
+import img from "../../../assets/png/img2.png";
 
-export default class CartWidget extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export default class CartOverlay extends Component {
   render() {
     return (
       <div className={styles.dropdown}>

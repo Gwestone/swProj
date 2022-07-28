@@ -1,16 +1,12 @@
 import { Component } from "react";
-import styles from "./Categories.module.scss";
+import styles from "../Navbar.module.scss";
 import { Query } from "@apollo/client/react/components";
 import GET_CATEGORIES from "../../../queries/GET_CATEGORIES";
-import Category from "../category/Category";
+import Category from "./Category";
 import { connect } from "react-redux";
 import { setCategory } from "../../../app/categorySlicer";
 
 class Categories extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleClick(id) {
     this.props.setCategory(id);
   }

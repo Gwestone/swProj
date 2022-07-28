@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styles from "./Details.module.scss";
-import img1 from "../../assets/png/img.png";
 import GET_PRODUCT from "../../queries/GET_PRODUCT";
 import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
 import Price from "./Price";
 import Attributes from "./Attributes/Attributes";
+import Gallery from "./Gallery";
 
 class Details extends Component {
   constructor(props) {
@@ -31,25 +31,11 @@ class Details extends Component {
             return (
               <div className={styles.main}>
                 <div className={styles.content}>
-                  <div className={styles.gallery}>
-                    {product.gallery.map((img, index) => {
-                      return (
-                        <img
-                          className={
-                            this.state.selectImage === index
-                              ? styles.active
-                              : ""
-                          }
-                          src={img}
-                          alt={""}
-                          key={index}
-                          onMouseOver={() => {
-                            this.handleHover(index);
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
+                  <Gallery
+                    product={product}
+                    onHover={(key) => this.handleHover(key)}
+                    selectedImage={this.state.selectImage}
+                  />
                   <div className={styles.image}>
                     <img
                       src={product.gallery[this.state.selectImage]}

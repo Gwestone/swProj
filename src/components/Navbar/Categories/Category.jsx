@@ -1,14 +1,7 @@
 import { Component } from "react";
-import styles from "./Category.module.scss";
-import logo from "../../../assets/svg/logo.svg";
-import Currency from "../../Currency/Currency";
-import CartWidget from "../../CartWidget/CartWidget";
+import styles from "../Navbar.module.scss";
 
 class Category extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static defaultProps = {
     name: "not found",
     active: false,

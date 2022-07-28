@@ -1,18 +1,12 @@
 import styles from "./Currency.module.scss";
 import { Component } from "react";
-import arrow from "../../assets/svg/arrow.svg";
+import arrow from "../../../assets/svg/arrow.svg";
 import { Query } from "@apollo/client/react/components";
-import GET_CATEGORIES from "../../queries/GET_CATEGORIES";
-import Category from "../Navbar/category/Category";
-import GET_CURRENCIES from "../../queries/GET_CURRENCIES";
-import { setCurrency } from "../../app/currencySlicer";
+import GET_CURRENCIES from "../../../queries/GET_CURRENCIES";
+import { setCurrency } from "../../../app/currencySlicer";
 import { connect } from "react-redux";
 
 class Currency extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleCurrencySelect(symbol, label) {
     this.props.setCurrency({ symbol: symbol, label: label });
   }

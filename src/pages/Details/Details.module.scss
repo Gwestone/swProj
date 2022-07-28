@@ -39,7 +39,9 @@ div.gallery>img.active{
 }
 
 .image > img {
-    width: calc-width(580px);
+    width: fit-content;
+    overflow: hidden;
+    max-width: calc-width(580px);
     height: calc-height(490px);
 }
 
