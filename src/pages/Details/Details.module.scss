@@ -23,9 +23,19 @@
 }
 
 div.gallery>img{
-    padding-bottom: 48px;
-    width: 110px;
+    margin-bottom: 48px;
+    width: fit-content;
+    max-width: 120px;
     height: 110px;
+    border: #FFFFFF solid 1px;
+}
+
+div.gallery>img:hover{
+    box-shadow: 0 0 0 1px #5ECE7B;
+}
+
+div.gallery>img.active{
+    box-shadow: 0 0 0 1px #5ECE7B;
 }
 
 .image > img {
@@ -80,7 +90,7 @@ div.gallery>img{
     color: #1D1F22;
 }
 
-.sizeLabel{
+.textLabel{
     width: fit-content;
     height: fit-content;
 
@@ -153,7 +163,7 @@ div.gallery>img{
     font-family: 'Source Sans Pro', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 18px;
     /* identical to box height, or 112% */
 

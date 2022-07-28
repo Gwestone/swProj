@@ -16,10 +16,10 @@ class App extends Component {
           <Dimmer>
             <Routes>
               <Route path={"/"} element={<Main />} />
-              <Route path={"/details"} element={<Details />} />
+
+              <Route path="/details/:id" element={<Details />} />
+
               <Route path={"/cart"} element={<Cart />} />
-              {/*<Route path={"/details/:id"} element={<Test />} />*/}
-              {/*<Route path={"/card"} element={<Test />} />*/}
             </Routes>
           </Dimmer>
         </BrowserRouter>

@@ -1,54 +1,92 @@
 import React, { Component } from "react";
 import styles from "./Details.module.scss";
 import img1 from "../../assets/png/img.png";
+import GET_PRODUCT from "../../queries/GET_PRODUCT";
+import { Query } from "@apollo/client/react/components";
+import { connect } from "react-redux";
+import Price from "./Price";
+import Attributes from "./Attributes/Attributes";
 
 class Details extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectImage: 0,
+    };
+  }
+
+  handleHover(key) {
+    this.setState({ ...this.state, selectImage: key });
+  }
+
   render() {
+    const id = window.location.pathname.split("/").pop();
+
     return (
-      <div className={styles.main}>
-        <div className={styles.content}>
-          <div className={styles.gallery}>
-            <img src={img1} alt={""} />
-            <img src={img1} alt={""} />
-            <img src={img1} alt={""} />
-          </div>
-          <div className={styles.image}>
-            <img src={img1} alt={""} />
-          </div>
-          <div className={styles.controls}>
-            <div className={styles.title}>Apollo</div>
-            <div className={styles.subtitle}>Running Short</div>
-            <div className={styles.sizeLabel}>Size:</div>
-            <div className={styles.buttonsGroup}>
-              <button className={styles.active}>XS</button>
-              <button>S</button>
-              <button>M</button>
-              <button>L</button>
-            </div>
-            <div className={styles.colorLabel}>Color:</div>
-            <div className={styles.pallet}>
-              <button
-                className={styles.active}
-                style={{ background: "#D3D2D5" }}
-              ></button>
-              <button style={{ background: "#2B2B2B" }}></button>
-              <button style={{ background: "#0F6450" }}></button>
-            </div>
-            <div className={styles.costLabel}>Price:</div>
-            <div className={styles.cost}>$50.00</div>
-            <div>
-              <button className={styles.addCart}>Add to cart</button>
-            </div>
-            <div className={styles.description}>
-              Find stunning women's cocktail dresses and party dresses. Stand
-              out in lace and metallic cocktail dresses and party dresses from
-              all your favorite brands.
-            </div>
-          </div>
-        </div>
-      </div>
+      <Query query={GET_PRODUCT} variables={{ id: id }}>
+        {({ loading, data }) => {
+          if (loading) return <div>Loading...</div>;
+          else {
+            const product = data.product;
+            return (
+              <div className={styles.main}>
+                <div className={styles.content}>
+                  <div className={styles.gallery}>
+                    {product.gallery.map((img, index) => {
+                      return (
+                        <img
+                          className={
+                            this.state.selectImage === index
+                              ? styles.active
+                              : ""
+                          }
+                          src={img}
+                          alt={""}
+                          key={index}
+                          onMouseOver={() => {
+                            this.handleHover(index);
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className={styles.image}>
+                    <img
+                      src={product.gallery[this.state.selectImage]}
+                      alt={""}
+                    />
+                  </div>
+                  <div className={styles.controls}>
+                    <div className={styles.title}>{product.name}</div>
+                    <div className={styles.subtitle}>{product.brand}</div>
+                    {/*make 1*/}
+                    <Attributes attributes={product.attributes} />
+                    <div className={styles.costLabel}>Price:</div>
+                    <div className={styles.cost}>
+                      <Price
+                        prices={product.prices}
+                        selected={this.props.label}
+                      />
+                    </div>
+                    <div>
+                      <button className={styles.addCart}>Add to cart</button>
+                    </div>
+                    <div className={styles.description}>
+                      {product.description}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        }}
+      </Query>
     );
   }
 }
 
-export default Details;
+const currencyStateToProps = (state) => {
+  return state.currency;
+};
+
+export default connect(currencyStateToProps, null)(Details);

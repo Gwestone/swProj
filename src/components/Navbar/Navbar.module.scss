@@ -3,7 +3,7 @@
 @import "../../assets/css/calc";
 
 .navbar{
-    position: absolute;
+    position: fixed;
     background: #FFFFFF;
     height: calc(80px * #{$heightCoeff});
     width: 100% ;
