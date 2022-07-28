@@ -3,22 +3,26 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/css/index.css";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-// root.render(
-//   <React.StrictMode>
-//     <Provider store={store}>
-//         <App />
-//     </Provider>
-//   </React.StrictMode>
-// );
+const client = new ApolloClient({
+  uri: "http://localhost:4000/",
+  cache: new InMemoryCache(),
+});
 
 root.render(
-  //<React.StrictMode>
-  <App />
-  //</React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

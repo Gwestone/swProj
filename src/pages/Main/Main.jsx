@@ -1,116 +1,37 @@
 import React, { Component } from "react";
 import styles from "./Main.module.scss";
-import img1 from "../../assets/png/img.png";
-import buyIcon from "../../assets/svg/buyIcon.svg";
+import Product from "./Product/product";
+import { Query } from "@apollo/client/react/components";
+import GET_PRODUCTS from "../../queries/GET_PRODUCTS";
+import { connect } from "react-redux";
 
 class Main extends Component {
   render() {
+    const selectedCategory = this.props.value;
     return (
       <div className={styles.main}>
-        <h2 className={styles.title}>Category name</h2>
+        <h2 className={styles.title}>{selectedCategory}</h2>
         <div className={styles.products}>
-          {/*first elem*/}
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.cardStockOut}>
-              <div className={styles.outStock}>out of stock</div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
-          <div className={styles.product}>
-            <div className={styles.card}>
-              <div className={styles.buyIconContainer}>
-                <img className={styles.buyIcon} src={buyIcon} alt="" />
-              </div>
-              <img className={styles.cardImage} src={img1}></img>
-              <br />
-              <div className={styles.cardTitle}>Apollo Running Sport</div>
-              <h5 className={styles.cardPrice}>$50.00</h5>
-            </div>
-          </div>
+          <Query
+            query={GET_PRODUCTS}
+            variables={{ categoryTitle: selectedCategory }}
+          >
+            {({ loading, data }) => {
+              if (loading) return <div>...</div>;
+              else
+                return data.category.products.map((data, index) => (
+                  <Product key={index} data={data} />
+                ));
+            }}
+          </Query>
         </div>
       </div>
     );
   }
 }
 
-export default Main;
+const categoryStateToProps = (state) => {
+  return state.category;
+};
+
+export default connect(categoryStateToProps, null)(Main);

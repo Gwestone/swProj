@@ -1,0 +1,14 @@
+@import "../../../assets/css/calc";
+
+.categories{
+
+  margin-left: calc-width(97px);
+  margin-top: calc-height(28px);
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+}

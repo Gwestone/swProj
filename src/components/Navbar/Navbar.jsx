@@ -3,8 +3,9 @@ import styles from "./Navbar.module.scss";
 import logo from "../../assets/svg/logo.svg";
 import Currency from "../Currency/Currency";
 import CartWidget from "../CartWidget/CartWidget";
+import Categories from "./categories/Categories";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,23 +13,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <div className={styles.navbar}>
-        <ul className={styles.categories}>
-          <li className={styles.activeCategory}>
-            <div className={styles.activeLabel}>
-              <div className={styles.activeText}>WOMEN</div>
-            </div>
-          </li>
-          <li className={styles.category}>
-            <div className={styles.label}>
-              <div className={styles.text}>MEN</div>
-            </div>
-          </li>
-          <li className={styles.category}>
-            <div className={styles.label}>
-              <div className={styles.text}>KIDS</div>
-            </div>
-          </li>
-        </ul>
+        <Categories />
         <img src={logo} className={styles.icon}></img>
         <ul className={styles.rightCategories}>
           <li>
@@ -43,3 +28,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default Navbar;

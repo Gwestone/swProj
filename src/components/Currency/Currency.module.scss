@@ -51,7 +51,7 @@
 /* Links inside the dropdown */
 .dropdownContent a {
     color: black;
-    padding: 25px 30px;
+    padding: 25px 25px;
     text-decoration: none;
     display: block;
     font-family: "Raleway", serif;
@@ -60,7 +60,11 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdownContent a:hover {
+.dropdownContent>a:hover {
+    background: #fafafa;
+}
+
+.dropdownContent>a.active {
     background: #fafafa;
 }
 

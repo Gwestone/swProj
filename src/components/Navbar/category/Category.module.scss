@@ -1,0 +1,75 @@
+@import "../../../assets/css/calc";
+
+.category{
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #FFFFFF;
+}
+
+.activeCategory{
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #5ECE7B;
+}
+
+.category{
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #FFFFFF;
+}
+
+.category:hover{
+  border-bottom: 3px solid #5ECE7B;
+  cursor: pointer;
+}
+
+.activeLabel{
+  width: fit-content;
+  height: calc-height(50px);
+}
+
+.label{
+  width: fit-content;
+  height: calc-height(50px);
+}
+
+.activeText{
+  width: fit-content;
+  height: fit-content;
+
+  font-family: 'Raleway', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 120%;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #5ECE7B;
+
+}
+
+.text{
+  width: fit-content;
+  height: fit-content;
+
+  font-family: 'Raleway', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 120%;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #1D1F22;
+}
+
+.category:hover .text {
+  font-weight: 600;
+  color: #5ECE7B;
+}
