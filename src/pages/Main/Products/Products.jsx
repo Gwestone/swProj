@@ -17,7 +17,6 @@ class Products extends Component {
             variables={{ categoryTitle: selectedCategory }}
           >
             {({ loading, data }) => {
-              console.log(data);
               if (loading) return <div>...</div>;
               else
                 return data.category.products.map((data, index) => (

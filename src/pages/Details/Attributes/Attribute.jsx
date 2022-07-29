@@ -6,7 +6,21 @@ class Attribute extends Component {
     super(props);
   }
 
+  handleClick(id, value) {
+    this.props.onSelect(id, value);
+  }
+
+  componentDidMount() {
+    // console.log(`${this.props.id}-${this.props.items[0].id}`);
+    this.handleClick(this.props.id, this.props.items[0].id);
+  }
+
   renderSelectors() {
+    let productAttributes = this.props.productAttributes;
+    let toFind = null;
+    if (this.props.id in productAttributes) {
+      toFind = productAttributes[this.props.id];
+    }
     if (this.props.type === "text") {
       return (
         <>
@@ -14,7 +28,15 @@ class Attribute extends Component {
           <div className={styles.buttonsGroup}>
             {/*<button className={styles.active}>XS</button>*/}
             {this.props.items.map((elem, index) => {
-              return <button key={index}>{elem.value}</button>;
+              return (
+                <button
+                  className={elem.id === toFind ? styles.active : ""}
+                  onClick={(e) => this.handleClick(this.props.id, elem.id)}
+                  key={index}
+                >
+                  {elem.value}
+                </button>
+              );
             })}
           </div>
         </>
@@ -28,7 +50,12 @@ class Attribute extends Component {
             {/*<button className={styles.active}>XS</button>*/}
             {this.props.items.map((elem, index) => {
               return (
-                <button style={{ background: elem.value }} key={index}></button>
+                <button
+                  className={elem.id === toFind ? styles.active : ""}
+                  onClick={(e) => this.handleClick(this.props.id, elem.id)}
+                  style={{ background: elem.value }}
+                  key={index}
+                ></button>
               );
             })}
           </div>

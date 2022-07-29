@@ -7,7 +7,7 @@ class Product extends Component {
   render() {
     const data = this.props.data;
 
-    let price = this.props.data.prices.find((price) => {
+    let price = data.prices.find((price) => {
       if (price.currency.label === this.props.label) {
         return true;
       }
@@ -16,14 +16,14 @@ class Product extends Component {
     return (
       <div className={styles.product}>
         <div className={styles.card}>
-          <div className={styles.buyIconContainer}>
+          <div className={styles.imgContainer}>
             <img className={styles.buyIcon} src={buyIcon} alt="" />
+            <img
+              className={styles.cardImage}
+              src={data.gallery[0]}
+              alt={""}
+            ></img>
           </div>
-          <img
-            className={styles.cardImage}
-            src={data.gallery[0]}
-            alt={""}
-          ></img>
           <br />
           <div className={styles.cardTitle}>{data.name}</div>
           <h5 className={styles.cardPrice}>

@@ -7,6 +7,10 @@ class Attributes extends Component {
     super(props);
   }
 
+  onSelect(id, value) {
+    this.props.onSelect(id, value);
+  }
+
   renderSelectors() {
     return this.props.attributes.map((elem, index) => {
       return (
@@ -16,23 +20,11 @@ class Attributes extends Component {
           id={elem.id}
           items={elem.items}
           key={index}
+          onSelect={(id, value) => this.onSelect(id, value)}
+          productAttributes={this.props.productAttributes}
         />
       );
     });
-
-    // if (this.state.texts) {
-    //   return (
-    //     <>
-    //       <div className={styles.sizeLabel}>Size:</div>
-    //       <div className={styles.buttonsGroup}>
-    //         {/*<button className={styles.active}>XS</button>*/}
-    //         {this.state.texts.items.map((elem, index) => {
-    //           return <button key={index}>{elem.value}</button>;
-    //         })}
-    //       </div>
-    //     </>
-    //   );
-    // }
   }
 
   render() {

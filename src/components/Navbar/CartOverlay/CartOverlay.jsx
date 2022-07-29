@@ -1,9 +1,29 @@
 import styles from "./CartOverlay.module.scss";
-import { Component } from "react";
+import React, { Component } from "react";
 import cart from "../../../assets/svg/cart.svg";
 import img from "../../../assets/png/img2.png";
+import { Navigate } from "react-router-dom";
 
 export default class CartOverlay extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      redirect: false,
+    };
+  }
+
+  navigateToBag() {
+    if (this.state.redirect) {
+      this.setState({
+        ...this.state,
+        redirect: false,
+      });
+      return <Navigate to={"/cart"} />;
+    } else {
+      return <></>;
+    }
+  }
+
   render() {
     return (
       <div className={styles.dropdown}>
@@ -55,10 +75,21 @@ export default class CartOverlay extends Component {
             <div className={styles.sum}> $200.00</div>
           </div>
           <div className={styles.buttons}>
-            <button className={styles.viewButton}>View bag</button>
+            <button
+              className={styles.viewButton}
+              onClick={() => {
+                this.setState({
+                  ...this.state,
+                  redirect: true,
+                });
+              }}
+            >
+              View bag
+            </button>
             <button className={styles.checkOutButton}>Check out</button>
           </div>
         </div>
+        {this.navigateToBag()}
       </div>
     );
   }

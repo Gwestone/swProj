@@ -162,7 +162,7 @@
 }
 
 .product:hover .buyIcon{
-    display: initial;
+    display: block;
 }
 
 .buyIcon:hover{
@@ -171,4 +171,8 @@
     right: 7%;
     bottom: 13%;
     filter: contrast(1.25);
+}
+
+.imgContainer{
+    width: fit-content;
 }
