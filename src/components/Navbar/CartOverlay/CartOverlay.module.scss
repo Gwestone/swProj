@@ -335,6 +335,7 @@
 }
 
 .checkOutButton{
+    text-decoration: none;
     width: fit-content;
     height: fit-content;
     float: right;
@@ -355,6 +356,10 @@
     background: #5ECE7B;
     border: #5ECE7B solid 2px;
 
+    color: #FFFFFF;
+}
+
+.checkOutButton>div{
     color: #FFFFFF;
 }
 

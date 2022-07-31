@@ -4,13 +4,16 @@ import logo from "../../assets/svg/logo.svg";
 import Currency from "./Currency/Currency";
 import CartOverlay from "./CartOverlay/CartOverlay";
 import Categories from "./Categories/Categories";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
     return (
       <div className={styles.navbar}>
         <Categories />
-        <img src={logo} className={styles.icon} alt={""}></img>
+        <Link to={"/"}>
+          <img src={logo} className={styles.icon} alt={""}></img>
+        </Link>
         <ul className={styles.rightCategories}>
           <li>
             <Currency />

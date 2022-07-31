@@ -2,22 +2,27 @@ import React, { Component } from "react";
 import styles from "../Main.module.scss";
 import buyIcon from "../../../assets/svg/buyIcon.svg";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Product extends Component {
-  render() {
-    const data = this.props.data;
-
-    let price = data.prices.find((price) => {
+  getCurrencyAmount(prices) {
+    return prices.find((price) => {
       if (price.currency.label === this.props.label) {
         return true;
       }
-    });
+    }).amount;
+  }
+
+  render() {
+    const data = this.props.data;
 
     return (
       <div className={styles.product}>
         <div className={styles.card}>
           <div className={styles.imgContainer}>
-            <img className={styles.buyIcon} src={buyIcon} alt="" />
+            <Link to={`/details/${data.id}`}>
+              <img className={styles.buyIcon} src={buyIcon} alt="" />
+            </Link>
             <img
               className={styles.cardImage}
               src={data.gallery[0]}
@@ -27,7 +32,7 @@ class Product extends Component {
           <br />
           <div className={styles.cardTitle}>{data.name}</div>
           <h5 className={styles.cardPrice}>
-            {price.currency.symbol} {price.amount}
+            {this.props.symbol} {this.getCurrencyAmount(data.prices)}
           </h5>
         </div>
       </div>

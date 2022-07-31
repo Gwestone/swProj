@@ -10,9 +10,21 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: "no-cache",
+    errorPolicy: "ignore",
+  },
+  query: {
+    fetchPolicy: "no-cache",
+    errorPolicy: "all",
+  },
+};
+
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache(),
+  defaultOptions: defaultOptions,
 });
 
 root.render(

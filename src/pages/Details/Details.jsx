@@ -33,8 +33,6 @@ class Details extends Component {
   }
 
   handleAddCart(id, productAttributes) {
-    console.log(id);
-    console.log(productAttributes);
     this.props.addCart({
       id: id,
       productAttributes: productAttributes,

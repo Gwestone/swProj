@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import styles from "./Cart.module.scss";
 import Items from "./Items/Items";
+import { connect } from "react-redux";
 
 class Cart extends Component {
+  sumCalc() {
+    console.log(this.props.cart);
+  }
+
+  countCalc() {
+    console.log(this.props.cart);
+  }
+
+  taxCalc() {
+    console.log(this.props.cart);
+  }
+
   render() {
     return (
       <div className={styles.main}>
@@ -34,4 +47,8 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+const stateToProps = (state) => {
+  return state.cart;
+};
+
+export default connect(stateToProps, null)(Cart);
