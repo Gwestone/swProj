@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/css/index.css";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import store from "./app/store";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const container = document.getElementById("root");

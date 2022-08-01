@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, createStore } from "@reduxjs/toolkit";
 import categoryReducer from "./categorySlicer";
 import currencyReducer from "./currencySlicer";
 import cartReducer from "./cartSlicer";
@@ -9,6 +9,14 @@ const rootReducer = combineReducers({
   cart: cartReducer,
 });
 
-export const store = configureStore({
-  reducer: rootReducer,
+const persistedState = localStorage.getItem("reduxState")
+  ? JSON.parse(localStorage.getItem("reduxState"))
+  : {};
+
+const store = createStore(rootReducer, persistedState);
+
+store.subscribe(() => {
+  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
 });
+
+export default store;
