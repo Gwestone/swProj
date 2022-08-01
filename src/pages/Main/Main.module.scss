@@ -8,6 +8,7 @@
 }
 
 .title{
+    text-transform: capitalize;
     /* Title */
     margin-top: calc-height(75px);
     margin-bottom: calc-height(100px);
@@ -34,7 +35,7 @@
 .products{
     display: grid;
     grid-template-columns: calc-width(386px) calc-width(386px) calc-width(386px);
-    grid-column-gap: calc-width(20px);
+    grid-column-gap: calc-width(85px);
     grid-row-gap: calc-height(103px);
     margin-bottom: 100px;
 }

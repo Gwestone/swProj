@@ -17,7 +17,7 @@ class Currency extends Component {
     return (
       <div className={styles.dropdown}>
         <button className={styles.btn}>
-          <div className={styles.currencyIcon}>$</div>
+          <div className={styles.currencyIcon}>{this.props.symbol}</div>
           <img className={styles.arrow} src={arrow} alt="" />
         </button>
 

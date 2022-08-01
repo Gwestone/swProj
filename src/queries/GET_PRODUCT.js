@@ -23,6 +23,7 @@ const GET_PRODUCT = gql`
         }
         amount
       }
+      description
       brand
     }
   }

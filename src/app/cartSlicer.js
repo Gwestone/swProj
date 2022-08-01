@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import time from "../utils/time";
 
 const cartSlicer = createSlice({
   name: "cart",

@@ -4,16 +4,37 @@ import Items from "./Items/Items";
 import { connect } from "react-redux";
 
 class Cart extends Component {
-  sumCalc() {
-    console.log(this.props.cart);
+  constructor(props) {
+    super(props);
+    this.state = {
+      price: 0,
+      currency: this.props.currency.symbol,
+      quantity: 0,
+    };
   }
 
-  countCalc() {
-    console.log(this.props.cart);
+  getCurrencyAmount(prices) {
+    return prices.find((price) => {
+      if (price.currency.label === this.props.currency.label) {
+        return true;
+      }
+    }).amount;
   }
 
-  taxCalc() {
-    console.log(this.props.cart);
+  calcPrice() {
+    let ans = 0;
+    this.props.cart.map((item) => {
+      ans += this.getCurrencyAmount(item.prices) * item.quantity;
+    });
+    return ans.toFixed(2);
+  }
+
+  getCount() {
+    let ans = 0;
+    this.props.cart.map((item) => {
+      ans += item.quantity;
+    });
+    return ans;
   }
 
   render() {
@@ -34,9 +55,14 @@ class Cart extends Component {
             </div>
           </div>
           <div className={styles.numbers}>
-            <div className={styles.number}>$42.00</div>
-            <div className={styles.number}>3</div>
-            <div className={styles.number}>$200.00</div>
+            <div className={styles.number}>
+              {this.props.currency.symbol}{" "}
+              {(this.calcPrice() * 0.21).toFixed(2)}
+            </div>
+            <div className={styles.number}>{this.getCount()}</div>
+            <div className={styles.number}>
+              {this.props.currency.symbol} {this.calcPrice()}
+            </div>
           </div>
         </div>
         <div className={styles.payButtonContainer}>
@@ -48,7 +74,7 @@ class Cart extends Component {
 }
 
 const stateToProps = (state) => {
-  return state.cart;
+  return { ...state.cart, currency: state.currency };
 };
 
 export default connect(stateToProps, null)(Cart);

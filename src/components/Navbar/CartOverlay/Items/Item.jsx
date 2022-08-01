@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import styles from "../Cart.module.scss";
-import img from "../../../assets/png/img2.png";
-import GET_PRODUCT from "../../../queries/GET_PRODUCT";
+import styles from "../CartOverlay.module.scss";
+import GET_PRODUCT from "../../../../queries/GET_PRODUCT";
 import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
-import GET_ATTRIBUTES from "../../../queries/GET_ATTRIBUTES";
+import GET_ATTRIBUTES from "../../../../queries/GET_ATTRIBUTES";
 import {
   decrementQuantityCart,
   incrementQuantityCart,
   updateCart,
-} from "../../../app/cartSlicer";
-import AttributeOption from "./Attributes/AttributeOption/AttributeOption";
+} from "../../../../app/cartSlicer";
 import Attribute from "./Attributes/Attribute";
 
 class Item extends Component {
@@ -48,10 +46,10 @@ class Item extends Component {
           else {
             const product = data.product;
             return (
-              <div className={styles.elem}>
+              <div className={styles.item}>
                 <div className={styles.controls}>
                   <div className={styles.itemTitle}>{product.name}</div>
-                  <div className={styles.itemSubtitle}>{product.brand}</div>
+                  {/*<div className={styles.itemSubtitle}>{product.brand}</div>*/}
                   <div className={styles.itemPrice}>
                     {this.props.symbol} {this.getCurrencyAmount(product.prices)}
                   </div>
@@ -83,7 +81,7 @@ class Item extends Component {
                       this.props.incrementQuantityCart(this.props.itemKey);
                     }}
                   >
-                    +
+                    <div className={styles.text}>+</div>
                   </button>
                   <div className={styles.itemCountDisplay}>{elem.quantity}</div>
                   <button
@@ -92,7 +90,7 @@ class Item extends Component {
                       this.props.decrementQuantityCart(this.props.itemKey);
                     }}
                   >
-                    _
+                    <div className={styles.text}>&#8211;</div>
                   </button>
                 </div>
                 <div className={styles.itemImgContainer}>

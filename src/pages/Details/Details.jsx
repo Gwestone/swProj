@@ -8,6 +8,7 @@ import Attributes from "./Attributes/Attributes";
 import Gallery from "./Gallery";
 import { addCart } from "../../app/cartSlicer";
 import { Navigate } from "react-router-dom";
+import parse from "html-react-parser";
 
 class Details extends Component {
   constructor(props) {
@@ -17,6 +18,14 @@ class Details extends Component {
       productAttributes: {},
       redirect: false,
     };
+  }
+
+  getPrice(prices) {
+    return prices.find((price) => {
+      if (price.currency.label === this.props.label) {
+        return true;
+      }
+    }).amount;
   }
 
   handleHover(key) {
@@ -32,11 +41,12 @@ class Details extends Component {
     });
   }
 
-  handleAddCart(id, productAttributes) {
+  handleAddCart(id, productAttributes, prices) {
     this.props.addCart({
       id: id,
       productAttributes: productAttributes,
       quantity: 1,
+      prices: prices,
     });
     this.setState({
       ...this.state,
@@ -81,15 +91,16 @@ class Details extends Component {
                       />
                       <div className={styles.costLabel}>Price:</div>
                       <div className={styles.cost}>
-                        <Price
-                          prices={product.prices}
-                          selected={this.props.label}
-                        />
+                        {this.props.symbol} {this.getPrice(product.prices)}
                       </div>
                       <div>
                         <button
                           onClick={() =>
-                            this.handleAddCart(id, this.state.productAttributes)
+                            this.handleAddCart(
+                              id,
+                              this.state.productAttributes,
+                              product.prices
+                            )
                           }
                           className={styles.addCart}
                         >
@@ -97,7 +108,7 @@ class Details extends Component {
                         </button>
                       </div>
                       <div className={styles.description}>
-                        {product.description}
+                        {parse(product.description)}
                       </div>
                     </div>
                   </div>
