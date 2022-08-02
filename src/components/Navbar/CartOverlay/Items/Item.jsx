@@ -22,9 +22,7 @@ class Item extends Component {
 
   getCurrencyAmount(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.label) {
-        return true;
-      }
+      return price.currency.label === this.props.label;
     }).amount;
   }
 
@@ -48,8 +46,11 @@ class Item extends Component {
             return (
               <div className={styles.item}>
                 <div className={styles.controls}>
-                  <div className={styles.itemTitle}>{product.name}</div>
-                  {/*<div className={styles.itemSubtitle}>{product.brand}</div>*/}
+                  <div className={styles.itemTitle}>
+                    {product.name}
+                    <br />
+                    {product.brand}
+                  </div>
                   <div className={styles.itemPrice}>
                     {this.props.symbol} {this.getCurrencyAmount(product.prices)}
                   </div>

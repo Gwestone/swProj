@@ -39,11 +39,11 @@ class Cart extends Component {
     return (
       <div className={styles.main}>
         <h2 className={styles.title}>Cart</h2>
+        {/*render cart items*/}
         <div className={styles.container}>
-          {/*first elem*/}
           <Items />
-          {/*second elem*/}
         </div>
+        {/*render all products price and count*/}
         <div className={styles.stats}>
           <div className={styles.labels}>
             <div className={styles.label}>Tax 21%: </div>
@@ -63,6 +63,7 @@ class Cart extends Component {
             </div>
           </div>
         </div>
+        {/*pay button*/}
         <div className={styles.payButtonContainer}>
           <button className={styles.payButton}>Order</button>
         </div>

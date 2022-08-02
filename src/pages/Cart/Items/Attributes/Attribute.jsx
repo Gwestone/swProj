@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "../../Cart.module.scss";
-import AttributeOption from "./AttributeOption/AttributeOption";
+import AttributeButtons from "./AttributeButtons";
 
 class Attribute extends Component {
   handleSelect(id, value) {
@@ -20,7 +20,7 @@ class Attribute extends Component {
               : styles.itemColorSelector
           }
         >
-          <AttributeOption
+          <AttributeButtons
             elem={elem}
             attribute={attribute}
             handleSelect={(id, value) => this.handleSelect(id, value)}

@@ -109,16 +109,22 @@
 }
 
 .itemImgContainer{
-    width: fit-content;
-    height: fit-content;
-    margin-right: 25px;
+    position: relative;
+    top: 47%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: calc-width(200px);
+    height: calc-height(288px);
 }
 
 .itemImg{
-    width: 265px;
+    position: absolute;
+    max-width: 265px;
+    width: fit-content;
     height: fit-content;
-    left: 0;
-    margin-left: auto;
+    right: 0;
+    bottom: 0;
 }
 
 .itemTitle{
@@ -299,17 +305,22 @@
 }
 
 .switchGroup{
+    float: right;
+    position: absolute;
     right: 0;
-}
-
-.switchGroup>div{
-    margin-right: 210px;
-    top: 10%;
+    bottom: 0;
+    z-index: 1000;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .switchGroup>div>button{
-    margin: 5px;
-    width: 20px;
-    height: 30px;
-    font-size: 25px;
+    margin: 4px;
+    background: #1D1F22;
+    color: #ffffff;
+    padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 20px;
+    opacity: 0.9;
 }

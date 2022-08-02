@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "../../../CartOverlay.module.scss";
+import styles from "../../Cart.module.scss";
 
-class AttributeOption extends Component {
+class AttributeButtons extends Component {
   handleSelect(id, value) {
     this.props.handleSelect(id, value);
   }
@@ -45,10 +45,11 @@ class AttributeOption extends Component {
                 }}
               ></button>
             );
+          return false;
         })}
       </>
     );
   }
 }
 
-export default AttributeOption;
+export default AttributeButtons;

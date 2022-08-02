@@ -7,19 +7,15 @@ import { dimmerOff, dimmerOn } from "../../../app/dimmerSlicer";
 import Items from "./Items/Items";
 
 class CartOverlay extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      redirect: false,
-    };
-  }
-
+  //get amount of current selected currency
+  //needs currency: state.currencies in props for work
   getCurrencyAmount(prices) {
     return prices.find((price) => {
       return price.currency.label === this.props.currency.label;
     }).amount;
   }
 
+  //count whole price of all products in cart
   calcPrice() {
     let ans = 0;
     this.props.cart.forEach((item) => {
@@ -28,13 +24,7 @@ class CartOverlay extends Component {
     return ans.toFixed(2);
   }
 
-  componentDidMount() {
-    this.setState({
-      ...this.state,
-      redirect: false,
-    });
-  }
-
+  // count all products in bag
   getCount() {
     let ans = 0;
     this.props.cart.forEach((item) => {
@@ -47,20 +37,23 @@ class CartOverlay extends Component {
     return (
       <div
         className={styles.dropdown}
-        onMouseOver={() => this.props.dimmerOn()}
-        onMouseLeave={() => this.props.dimmerOff()}
+        // onMouseOver={() => this.props.dimmerOn()}
+        // onMouseLeave={() => this.props.dimmerOff()}
       >
         <button className={styles.btn}>
           <img className={styles.icon} src={cart} alt="" />
         </button>
         <div className={styles.dropdownContent}>
+          {/*cart title with bag items count*/}
           <div className={styles.title}>
             <div className={styles.myBag}>My bag, </div>
             <div className={styles.itemsCount}>{this.getCount()} items</div>
           </div>
+          {/*bag items*/}
           <div className={styles.container}>
             <Items />
           </div>
+          {/*total price render and calc*/}
           <div className={styles.itemSpacer}></div>
           <div className={styles.priceLabel}>
             <div className={styles.total}>Total </div>
@@ -68,6 +61,7 @@ class CartOverlay extends Component {
               {this.props.currency.symbol} {this.calcPrice()}
             </div>
           </div>
+          {/*pay and view bag buttons*/}
           <div className={styles.buttons}>
             <Link className={styles.viewButton} to={"/cart"}>
               View bag

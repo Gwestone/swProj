@@ -41,6 +41,7 @@
 }
 
 .product{
+    background: #FFFFFF;
     width: calc-width(386px);
     height: fit-content;
 }
@@ -92,7 +93,7 @@
 }
 
 .cardImage{
-    width: fit-content;
+    display: inline-block;
     max-width: calc-width(354px);
     height: calc(470px / 1.07);
 }
@@ -175,5 +176,6 @@
 }
 
 .imgContainer{
-    width: fit-content;
+    width: 100%;
+    text-align: center;
 }
