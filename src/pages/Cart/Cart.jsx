@@ -15,15 +15,13 @@ class Cart extends Component {
 
   getCurrencyAmount(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.currency.label) {
-        return true;
-      }
+      return price.currency.label === this.props.currency.label;
     }).amount;
   }
 
   calcPrice() {
     let ans = 0;
-    this.props.cart.map((item) => {
+    this.props.cart.forEach((item) => {
       ans += this.getCurrencyAmount(item.prices) * item.quantity;
     });
     return ans.toFixed(2);
@@ -31,7 +29,7 @@ class Cart extends Component {
 
   getCount() {
     let ans = 0;
-    this.props.cart.map((item) => {
+    this.props.cart.forEach((item) => {
       ans += item.quantity;
     });
     return ans;

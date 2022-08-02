@@ -18,6 +18,9 @@ const cartSlicer = createSlice({
     },
     decrementQuantityCart(state, action) {
       state.cart[action.payload].quantity -= 1;
+      if (state.cart[action.payload].quantity === 0) {
+        state.cart.splice(action.payload, 1);
+      }
     },
   },
 });

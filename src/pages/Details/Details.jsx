@@ -3,7 +3,6 @@ import styles from "./Details.module.scss";
 import GET_PRODUCT from "../../queries/GET_PRODUCT";
 import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
-import Price from "./Price";
 import Attributes from "./Attributes/Attributes";
 import Gallery from "./Gallery";
 import { addCart } from "../../app/cartSlicer";
@@ -22,9 +21,7 @@ class Details extends Component {
 
   getPrice(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.label) {
-        return true;
-      }
+      return price.currency.label === this.props.label;
     }).amount;
   }
 

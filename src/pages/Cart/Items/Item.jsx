@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "../Cart.module.scss";
-import img from "../../../assets/png/img2.png";
 import GET_PRODUCT from "../../../queries/GET_PRODUCT";
 import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
@@ -10,7 +9,6 @@ import {
   incrementQuantityCart,
   updateCart,
 } from "../../../app/cartSlicer";
-import AttributeOption from "./Attributes/AttributeOption/AttributeOption";
 import Attribute from "./Attributes/Attribute";
 
 class Item extends Component {
@@ -19,14 +17,35 @@ class Item extends Component {
     this.state = {
       itemKey: this.props.itemKey,
       elem: this.props.elem,
+      galleryElem: 0,
     };
+  }
+
+  handleIncreaseGallery(size) {
+    let toSet = this.state.galleryElem + 1;
+    if (this.state.galleryElem === size - 1) {
+      toSet = 0;
+    }
+    this.setState({
+      ...this.state,
+      galleryElem: toSet,
+    });
+  }
+
+  handleDecreaseGallery(size) {
+    let toSet = this.state.galleryElem - 1;
+    if (this.state.galleryElem === 0) {
+      toSet = size - 1;
+    }
+    this.setState({
+      ...this.state,
+      galleryElem: toSet,
+    });
   }
 
   getCurrencyAmount(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.label) {
-        return true;
-      }
+      return price.currency.label === this.props.label;
     }).amount;
   }
 
@@ -98,9 +117,27 @@ class Item extends Component {
                 <div className={styles.itemImgContainer}>
                   <img
                     className={styles.itemImg}
-                    src={product.gallery[0]}
+                    src={product.gallery[this.state.galleryElem]}
                     alt=""
                   />
+                  <div className={styles.switchGroup}>
+                    <div>
+                      <button
+                        onClick={() =>
+                          this.handleDecreaseGallery(product.gallery.length)
+                        }
+                      >
+                        &#60;
+                      </button>
+                      <button
+                        onClick={() =>
+                          this.handleIncreaseGallery(product.gallery.length)
+                        }
+                      >
+                        &#62;
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

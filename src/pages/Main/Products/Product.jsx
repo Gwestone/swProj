@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 class Product extends Component {
   getCurrencyAmount(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.label) {
-        return true;
-      }
+      return price.currency.label === this.props.label;
     }).amount;
   }
 

@@ -45,6 +45,7 @@ class AttributeOption extends Component {
                 }}
               ></button>
             );
+          return false;
         })}
       </>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./assets/css/index.css";
+import "./assets/css/index.scss";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import styles from "../Details.module.scss";
 import Attribute from "./Attribute";
 
 class Attributes extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onSelect(id, value) {
     this.props.onSelect(id, value);
   }

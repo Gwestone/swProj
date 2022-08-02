@@ -1,8 +1,7 @@
 import styles from "./CartOverlay.module.scss";
 import React, { Component } from "react";
 import cart from "../../../assets/svg/cart.svg";
-import img from "../../../assets/png/img2.png";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { dimmerOff, dimmerOn } from "../../../app/dimmerSlicer";
 import Items from "./Items/Items";
@@ -17,15 +16,13 @@ class CartOverlay extends Component {
 
   getCurrencyAmount(prices) {
     return prices.find((price) => {
-      if (price.currency.label === this.props.currency.label) {
-        return true;
-      }
+      return price.currency.label === this.props.currency.label;
     }).amount;
   }
 
   calcPrice() {
     let ans = 0;
-    this.props.cart.map((item) => {
+    this.props.cart.forEach((item) => {
       ans += this.getCurrencyAmount(item.prices) * item.quantity;
     });
     return ans.toFixed(2);
@@ -40,7 +37,7 @@ class CartOverlay extends Component {
 
   getCount() {
     let ans = 0;
-    this.props.cart.map((item) => {
+    this.props.cart.forEach((item) => {
       ans += item.quantity;
     });
     return ans;
@@ -64,6 +61,7 @@ class CartOverlay extends Component {
           <div className={styles.container}>
             <Items />
           </div>
+          <div className={styles.itemSpacer}></div>
           <div className={styles.priceLabel}>
             <div className={styles.total}>Total </div>
             <div className={styles.sum}>

@@ -84,6 +84,7 @@
 }
 
 .itemCount{
+    float: left;
     display: grid;
     grid-gap: 85px;
     grid-template-rows: 1fr 1fr 1fr;
@@ -91,6 +92,7 @@
 
 .itemPlus{
     float: top;
+
 }
 
 .itemCountDisplay{
@@ -100,10 +102,9 @@
     font-size: 32px;
     /* identical to box height, or 26px */
 
-    text-align: right;
+    text-align: left;
 
     color: #1D1F22;
-    margin: 15px;
     margin-right: 38px;
 }
 
@@ -116,6 +117,8 @@
 .itemImg{
     width: 265px;
     height: fit-content;
+    left: 0;
+    margin-left: auto;
 }
 
 .itemTitle{
@@ -293,4 +296,20 @@
 
 .payButton:hover{
     background: #4fad66;
+}
+
+.switchGroup{
+    right: 0;
+}
+
+.switchGroup>div{
+    margin-right: 210px;
+    top: 10%;
+}
+
+.switchGroup>div>button{
+    margin: 5px;
+    width: 20px;
+    height: 30px;
+    font-size: 25px;
 }

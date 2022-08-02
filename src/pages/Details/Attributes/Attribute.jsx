@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import styles from "../Details.module.scss";
 
 class Attribute extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleClick(id, value) {
     this.props.onSelect(id, value);
   }
@@ -31,7 +27,7 @@ class Attribute extends Component {
               return (
                 <button
                   className={elem.id === toFind ? styles.active : ""}
-                  onClick={(e) => this.handleClick(this.props.id, elem.id)}
+                  onClick={(_) => this.handleClick(this.props.id, elem.id)}
                   key={index}
                 >
                   {elem.value}
@@ -52,7 +48,7 @@ class Attribute extends Component {
               return (
                 <button
                   className={elem.id === toFind ? styles.active : ""}
-                  onClick={(e) => this.handleClick(this.props.id, elem.id)}
+                  onClick={(_) => this.handleClick(this.props.id, elem.id)}
                   style={{ background: elem.value }}
                   key={index}
                 ></button>
