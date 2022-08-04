@@ -1,5 +1,6 @@
 import { Component } from "react";
 import styles from "../Navbar.module.scss";
+import { Link } from "react-router-dom";
 
 class Category extends Component {
   static defaultProps = {
@@ -13,11 +14,17 @@ class Category extends Component {
         className={this.props.active ? styles.activeCategory : styles.category}
         onClick={this.props.onClick}
       >
-        <div className={this.props.active ? styles.activeLabel : styles.label}>
-          <div className={this.props.active ? styles.activeText : styles.text}>
-            {this.props.name}
+        <Link to={"/"} className={styles.link}>
+          <div
+            className={this.props.active ? styles.activeLabel : styles.label}
+          >
+            <div
+              className={this.props.active ? styles.activeText : styles.text}
+            >
+              {this.props.name}
+            </div>
           </div>
-        </div>
+        </Link>
       </li>
     );
   }
