@@ -51,6 +51,21 @@ class Details extends Component {
     });
   }
 
+  renderBuyButton(product, id) {
+    return product.inStock ? (
+      <button
+        onClick={() =>
+          this.handleAddCart(id, this.state.productAttributes, product.prices)
+        }
+        className={styles.addCart}
+      >
+        Add to cart
+      </button>
+    ) : (
+      <div className={styles.outOfStock}>Out of stock</div>
+    );
+  }
+
   render() {
     const id = window.location.pathname.split("/").pop();
 
@@ -117,20 +132,9 @@ class Details extends Component {
                       <div className={styles.cost}>
                         {this.props.symbol} {this.getPrice(product.prices)}
                       </div>
-                      <div>
-                        <button
-                          onClick={() =>
-                            this.handleAddCart(
-                              id,
-                              this.state.productAttributes,
-                              product.prices
-                            )
-                          }
-                          className={styles.addCart}
-                        >
-                          Add to cart
-                        </button>
-                      </div>
+                      {/*buy button*/}
+                      <div>{this.renderBuyButton(product, id)}</div>
+                      {/*description*/}
                       <div className={styles.description}>
                         {parse(product.description)}
                       </div>

@@ -6,6 +6,7 @@ const GET_PRODUCT = gql`
       id
       name
       gallery
+      inStock
       attributes {
         id
         name
