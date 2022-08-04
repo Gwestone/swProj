@@ -73,23 +73,6 @@
 .cardStockOut{
     -webkit-filter: grayscale(1);
     opacity: 0.5;
-    position: relative;
-
-    width: 87%;
-    margin: 0 auto;
-    padding-right: 35px;
-    padding-top: 20px;
-    /*box-shadow: gray 1px 1px 200px;*/
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    //width: fit-content;
-    height: fit-content;
-
-    /* --c-white */
-
 }
 
 .cardImage{
@@ -147,7 +130,7 @@
     font-weight: 400;
     font-size: 32px;
     -webkit-text-stroke: 1px #8D8F9A;
-    color: #FFFFFF;
+    color: #1D1F22;
     position: absolute;
     left: 23%;
     top: 40%;

@@ -40,45 +40,56 @@ class Product extends Component {
 
     return (
       <div className={styles.product}>
-        <Link to={`/details/${data.id}`} className={styles.link}>
-          <div className={styles.card}>
-            <div className={styles.imgContainer}>
-              <Query query={GET_ATTRIBUTES} variables={{ id: data.id }}>
-                {(result) => {
-                  if (result.loading) return <div>loading...</div>;
-                  else
-                    return (
-                      <button
-                        className={styles.addToCart}
-                        onClick={(e) =>
-                          this.handleAddCart(
-                            e,
-                            data.id,
-                            result.data,
-                            data.prices
-                          )
-                        }
-                      >
-                        <img className={styles.buyIcon} src={buyIcon} alt="" />
-                      </button>
-                    );
-                }}
-              </Query>
-              <img
-                className={styles.cardImage}
-                src={data.gallery[0]}
-                alt={""}
-              ></img>
+        <div className={!data.inStock ? styles.cardStockOut : ""}>
+          <Link to={`/details/${data.id}`} className={styles.link}>
+            <div className={styles.card}>
+              <div className={styles.imgContainer}>
+                <Query query={GET_ATTRIBUTES} variables={{ id: data.id }}>
+                  {(result) => {
+                    if (result.loading) return <div>loading...</div>;
+                    else
+                      return (
+                        <button
+                          className={styles.addToCart}
+                          onClick={(e) =>
+                            this.handleAddCart(
+                              e,
+                              data.id,
+                              result.data,
+                              data.prices
+                            )
+                          }
+                        >
+                          <img
+                            className={styles.buyIcon}
+                            src={buyIcon}
+                            alt=""
+                          />
+                        </button>
+                      );
+                  }}
+                </Query>
+                {!data.inStock ? (
+                  <div className={styles.outStock}>Out of Stock</div>
+                ) : (
+                  ""
+                )}
+                <img
+                  className={styles.cardImage}
+                  src={data.gallery[0]}
+                  alt={""}
+                ></img>
+              </div>
+              <br />
+              <div className={styles.cardTitle}>
+                {data.name} {data.brand}
+              </div>
+              <h5 className={styles.cardPrice}>
+                {this.props.symbol} {this.getCurrencyAmount(data.prices)}
+              </h5>
             </div>
-            <br />
-            <div className={styles.cardTitle}>
-              {data.name} {data.brand}
-            </div>
-            <h5 className={styles.cardPrice}>
-              {this.props.symbol} {this.getCurrencyAmount(data.prices)}
-            </h5>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     );
   }
