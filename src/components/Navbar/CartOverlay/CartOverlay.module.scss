@@ -6,8 +6,6 @@
     display: inline-block;
 }
 
-.dropbtn {
-}
 .dropdownContent {
     background: #ffffff;
     width: fit-content;
@@ -124,7 +122,6 @@
 .itemImg{
     position: relative;
     top: 47%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     height: fit-content;
@@ -329,8 +326,7 @@
 }
 
 .buttons{
-    margin: 20px;
-    margin-right: 25px;
+    margin: 20px 25px 20px 20px;
 }
 
 .viewButton{
@@ -343,9 +339,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    padding: 12px;
-    padding-left: 42px;
-    padding-right: 42px;
+    padding: 12px 42px;
     margin-bottom: 20px;
 
     text-transform: uppercase;
@@ -375,9 +369,7 @@
 
     text-transform: uppercase;
 
-    padding: 12px;
-    padding-left: 38px;
-    padding-right: 38px;
+    padding: 12px 38px;
     margin-bottom: 20px;
 
     background: #5ECE7B;
@@ -401,4 +393,15 @@
 
 .itemSpacer{
     width: 420px;
+}
+
+.badge{
+    top: 8px;
+    right: -6px;
+    padding: 2px 5px;
+    border-radius: 100%;
+    font-size: 15px;
+    position: absolute;
+    background: #1D1F22;
+    color: #ffffff;
 }

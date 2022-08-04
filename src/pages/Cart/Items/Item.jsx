@@ -21,6 +21,38 @@ class Item extends Component {
     };
   }
 
+  renderDecreaseButton(product) {
+    return (
+      <>
+        {product.gallery.length > 1 ? (
+          <button
+            onClick={() => this.handleDecreaseGallery(product.gallery.length)}
+          >
+            &#60;
+          </button>
+        ) : (
+          ""
+        )}
+      </>
+    );
+  }
+
+  renderIncreaseButton(product) {
+    return (
+      <>
+        {product.gallery.length > 1 ? (
+          <button
+            onClick={() => this.handleIncreaseGallery(product.gallery.length)}
+          >
+            &#62;
+          </button>
+        ) : (
+          ""
+        )}
+      </>
+    );
+  }
+
   handleIncreaseGallery(size) {
     let toSet = this.state.galleryElem + 1;
     if (this.state.galleryElem === size - 1) {
@@ -122,20 +154,8 @@ class Item extends Component {
                   />
                   <div className={styles.switchGroup}>
                     <div>
-                      <button
-                        onClick={() =>
-                          this.handleDecreaseGallery(product.gallery.length)
-                        }
-                      >
-                        &#60;
-                      </button>
-                      <button
-                        onClick={() =>
-                          this.handleIncreaseGallery(product.gallery.length)
-                        }
-                      >
-                        &#62;
-                      </button>
+                      {this.renderDecreaseButton(product)}
+                      {this.renderIncreaseButton(product)}
                     </div>
                   </div>
                 </div>

@@ -16,6 +16,7 @@ const GET_PRODUCTS = gql`
           }
           amount
         }
+        brand
       }
     }
   }

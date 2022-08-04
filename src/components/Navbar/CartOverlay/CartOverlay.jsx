@@ -42,6 +42,11 @@ class CartOverlay extends Component {
       >
         <button className={styles.btn}>
           <img className={styles.icon} src={cart} alt="" />
+          {this.getCount() > 0 ? (
+            <div className={styles.badge}>{this.getCount()}</div>
+          ) : (
+            ""
+          )}
         </button>
         <div className={styles.dropdownContent}>
           {/*cart title with bag items count*/}

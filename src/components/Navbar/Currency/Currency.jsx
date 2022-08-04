@@ -24,19 +24,21 @@ class Currency extends Component {
         <div className={styles.dropdownContent}>
           <Query query={GET_CURRENCIES}>
             {({ loading, data }) => {
+              /**
+               * @param {{currencies:[{label:string,symbol:string}]}} data
+               */
               if (loading) return <div>...</div>;
               else
                 return data.currencies.map(({ symbol, label }, index) => (
-                  <a
+                  <div
                     className={currentCurrency === label ? styles.active : ""}
-                    href="#"
                     onClick={() => {
                       this.handleCurrencySelect(symbol, label);
                     }}
                     key={index}
                   >
                     {symbol} {label}
-                  </a>
+                  </div>
                 ));
             }}
           </Query>

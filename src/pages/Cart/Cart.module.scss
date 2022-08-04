@@ -111,7 +111,6 @@
 .itemImgContainer{
     position: relative;
     top: 47%;
-    -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: calc-width(200px);
@@ -294,9 +293,7 @@
     font-family: 'Raleway', serif;
     border: #5ECE7B solid 2px;
     font-size: 18px;
-    padding: 15px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding: 15px 150px;
     margin-bottom: 50px;
 }
 
@@ -318,9 +315,7 @@
     margin: 4px;
     background: #1D1F22;
     color: #ffffff;
-    padding: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 1px 5px;
     font-size: 20px;
     opacity: 0.9;
 }

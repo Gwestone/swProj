@@ -58,6 +58,33 @@ class Details extends Component {
       <>
         <Query query={GET_PRODUCT} variables={{ id: id }}>
           {({ loading, data }) => {
+            /**
+             * @param {{
+             *  product:{
+             *    id: string,
+             *    name: string,
+             *    gallery:[string],
+             *    attributes:[{
+             *        id: string,
+             *        name: string,
+             *        type: string,
+             *        items:[{
+             *            displayValue: string,
+             *            value: string,
+             *            id: string
+             *          }]
+             *        }],
+             *       prices: [{
+             *          currency: {
+             *              label: string,
+             *              symbol: string
+             *          },
+             *          amount: number
+             *        }],
+             *       description: string
+             *      }
+             *     }} data
+             */
             if (loading) return <div>Loading...</div>;
             else {
               const product = data.product;

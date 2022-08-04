@@ -28,7 +28,9 @@ class Product extends Component {
             ></img>
           </div>
           <br />
-          <div className={styles.cardTitle}>{data.name}</div>
+          <div className={styles.cardTitle}>
+            {data.name} {data.brand}
+          </div>
           <h5 className={styles.cardPrice}>
             {this.props.symbol} {this.getCurrencyAmount(data.prices)}
           </h5>

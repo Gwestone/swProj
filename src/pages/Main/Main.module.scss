@@ -4,7 +4,8 @@
 
 .main{
     padding-top: calc-height(80px);
-    padding-left: calc-width(100px);
+    padding-left: 5%;
+    overflow: clip;
 }
 
 .title{
@@ -34,8 +35,7 @@
 
 .products{
     display: grid;
-    grid-template-columns: calc-width(386px) calc-width(386px) calc-width(386px);
-    grid-column-gap: calc-width(85px);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: calc-height(103px);
     margin-bottom: 100px;
 }

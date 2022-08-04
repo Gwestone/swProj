@@ -17,6 +17,27 @@ class Products extends Component {
             variables={{ categoryTitle: selectedCategory }}
           >
             {({ loading, data }) => {
+              /**
+               * @param {{
+               *  category:{
+               *    products: [{
+               *      id: string,
+               *      name: string,
+               *      inStock: boolean,
+               *      gallery: [string],
+               *      description: string,
+               *      prices: [{
+               *        currency: {
+               *            label: string,
+               *            symbol: string
+               *        },
+               *        amount: number
+               *      }]
+               *    }],
+               *    brand: string
+               *  }
+               * }} data
+               */
               if (loading) return <div>...</div>;
               else
                 return data.category.products.map((data, index) => (
