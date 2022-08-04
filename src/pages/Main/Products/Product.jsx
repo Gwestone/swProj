@@ -16,25 +16,25 @@ class Product extends Component {
 
     return (
       <div className={styles.product}>
-        <div className={styles.card}>
-          <div className={styles.imgContainer}>
-            <Link to={`/details/${data.id}`}>
+        <Link to={`/details/${data.id}`} className={styles.link}>
+          <div className={styles.card}>
+            <div className={styles.imgContainer}>
               <img className={styles.buyIcon} src={buyIcon} alt="" />
-            </Link>
-            <img
-              className={styles.cardImage}
-              src={data.gallery[0]}
-              alt={""}
-            ></img>
+              <img
+                className={styles.cardImage}
+                src={data.gallery[0]}
+                alt={""}
+              ></img>
+            </div>
+            <br />
+            <div className={styles.cardTitle}>
+              {data.name} {data.brand}
+            </div>
+            <h5 className={styles.cardPrice}>
+              {this.props.symbol} {this.getCurrencyAmount(data.prices)}
+            </h5>
           </div>
-          <br />
-          <div className={styles.cardTitle}>
-            {data.name} {data.brand}
-          </div>
-          <h5 className={styles.cardPrice}>
-            {this.props.symbol} {this.getCurrencyAmount(data.prices)}
-          </h5>
-        </div>
+        </Link>
       </div>
     );
   }
