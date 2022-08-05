@@ -3,8 +3,6 @@ import styles from "../Main.module.scss";
 import buyIcon from "../../../assets/svg/buyIcon.svg";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Query } from "@apollo/client/react/components";
-import GET_ATTRIBUTES from "../../../queries/GET_ATTRIBUTES";
 import { addCart } from "../../../app/cartSlicer";
 
 class Product extends Component {
@@ -17,7 +15,7 @@ class Product extends Component {
   handleAddCart(e, id, attributes, prices) {
     e.preventDefault();
     let productAttributes = {};
-    attributes.product.attributes.forEach((item) => {
+    attributes.forEach((item) => {
       productAttributes[item.id] = item.items[0].id;
     });
     // console.log(id);
@@ -29,14 +27,25 @@ class Product extends Component {
       quantity: 1,
       prices: prices,
     });
-    this.setState({
-      ...this.state,
-      redirect: true,
-    });
+  }
+
+  renderAddButton(data) {
+    if (data.inStock)
+      return (
+        <button
+          className={styles.addToCart}
+          onClick={(e) =>
+            this.handleAddCart(e, data.id, data.attributes, data.prices)
+          }
+        >
+          <img className={styles.buyIcon} src={buyIcon} alt="" />
+        </button>
+      );
   }
 
   render() {
     const data = this.props.data;
+    // console.log(data);
     /**
      * @param {{ id: string,
      *          name: string,
@@ -49,7 +58,10 @@ class Product extends Component {
      *              },
      *              amount: number
      *          }],
-     *          gallery: [string]
+     *          gallery: [string],
+     *          attributes: [{
+     *
+     *          }]
      *        }} data
      */
 
@@ -59,33 +71,8 @@ class Product extends Component {
           <Link to={`/details/${data.id}`} className={styles.link}>
             <div className={styles.card}>
               <div className={styles.imgContainer}>
-                <Query query={GET_ATTRIBUTES} variables={{ id: data.id }}>
-                  {(result) => {
-                    if (result.loading) return <div>loading...</div>;
-                    else {
-                      if (data.inStock)
-                        return (
-                          <button
-                            className={styles.addToCart}
-                            onClick={(e) =>
-                              this.handleAddCart(
-                                e,
-                                data.id,
-                                result.data,
-                                data.prices
-                              )
-                            }
-                          >
-                            <img
-                              className={styles.buyIcon}
-                              src={buyIcon}
-                              alt=""
-                            />
-                          </button>
-                        );
-                    }
-                  }}
-                </Query>
+                {/*round green cart button*/}
+                {this.renderAddButton(data)}
                 {!data.inStock ? (
                   <div className={styles.outStock}>Out of Stock</div>
                 ) : (
