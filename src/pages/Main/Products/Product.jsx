@@ -37,6 +37,21 @@ class Product extends Component {
 
   render() {
     const data = this.props.data;
+    /**
+     * @param {{ id: string,
+     *          name: string,
+     *          brand: string,
+     *          inStock: boolean,
+     *          prices: [{
+     *              currency: {
+     *                  label: string,
+     *                  symbol: string
+     *              },
+     *              amount: number
+     *          }],
+     *          gallery: [string]
+     *        }} data
+     */
 
     return (
       <div className={styles.product}>
@@ -47,26 +62,28 @@ class Product extends Component {
                 <Query query={GET_ATTRIBUTES} variables={{ id: data.id }}>
                   {(result) => {
                     if (result.loading) return <div>loading...</div>;
-                    else
-                      return (
-                        <button
-                          className={styles.addToCart}
-                          onClick={(e) =>
-                            this.handleAddCart(
-                              e,
-                              data.id,
-                              result.data,
-                              data.prices
-                            )
-                          }
-                        >
-                          <img
-                            className={styles.buyIcon}
-                            src={buyIcon}
-                            alt=""
-                          />
-                        </button>
-                      );
+                    else {
+                      if (data.inStock)
+                        return (
+                          <button
+                            className={styles.addToCart}
+                            onClick={(e) =>
+                              this.handleAddCart(
+                                e,
+                                data.id,
+                                result.data,
+                                data.prices
+                              )
+                            }
+                          >
+                            <img
+                              className={styles.buyIcon}
+                              src={buyIcon}
+                              alt=""
+                            />
+                          </button>
+                        );
+                    }
                   }}
                 </Query>
                 {!data.inStock ? (
