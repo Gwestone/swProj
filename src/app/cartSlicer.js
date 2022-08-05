@@ -7,7 +7,23 @@ const cartSlicer = createSlice({
   },
   reducers: {
     addCart(state, action) {
-      state.cart.push(action.payload);
+      let index = -1;
+      state.cart.find((item, _index) => {
+        if (
+          item.id === action.payload.id &&
+          JSON.stringify(item.productAttributes) ===
+            JSON.stringify(action.payload.productAttributes)
+        ) {
+          index = _index;
+          return true;
+        }
+        return false;
+      });
+      if (index !== -1) {
+        state.cart[index].quantity += action.payload.quantity;
+      } else {
+        state.cart.push(action.payload);
+      }
     },
     updateCart(state, action) {
       state.cart[action.payload.itemKey].productAttributes[action.payload.id] =
