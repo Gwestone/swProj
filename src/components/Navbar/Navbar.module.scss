@@ -1,140 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
 
 @import "../../assets/css/calc";
 
 // navbar
 //************************************
-.navbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(80px * #{$heightCoeff});
-    z-index:99;
-    background: #FFFFFF;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(80px * #{$heightCoeff});
+  z-index: 99;
+  background: #ffffff;
 }
 
-.icon{
-    position: absolute;
-    height: calc-height(32px);
-    width: calc-width(32px);
-    left: calc(50% - calc(15px * #{$widthCoeff}));
-    right: calc(50% - calc(16px * #{$widthCoeff}));
-    top: calc-height(28px);
-    bottom: calc-height(15px);
+.icon {
+  position: absolute;
+  height: calc-height(32px);
+  width: calc-width(32px);
+  left: calc(50% - calc(15px * #{$widthCoeff}));
+  right: calc(50% - calc(16px * #{$widthCoeff}));
+  top: calc-height(28px);
+  bottom: calc-height(15px);
 }
 
-.rightCategories{
-    position: absolute;
-    right: 0;
-    top: calc-height(24px);
-    margin-right: calc-width(75px);
-    margin-bottom: calc-height(24px);
-    list-style-type: none;
-    display: flex;
-    text-decoration: none;
+.rightCategories {
+  position: absolute;
+  right: 0;
+  top: calc-height(24px);
+  margin-right: calc-width(75px);
+  margin-bottom: calc-height(24px);
+  list-style-type: none;
+  display: flex;
+  text-decoration: none;
 }
 
-.cart{
-    padding-top: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 23px;
+.cart {
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 23px;
 }
 
-.link{
-    text-decoration: none;
+.link {
+  text-decoration: none;
 }
 
 //Categories
 //*****************************
 
-.categories{
+.categories {
+  margin-left: calc-width(97px);
+  margin-top: calc-height(28px);
 
-    margin-left: calc-width(97px);
-    margin-top: calc-height(28px);
+  /* Auto layout */
 
-    /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
+}
 
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-    height: fit-content;
+@media (max-width: 900px) {
+  .categories {
+    margin-left: calc-width(10px);
+  }
 }
 
 //category
 //*****************************
 
-.category{
-    display: inline;
-    height: fit-content;
-    padding: 0 calc-height(16px);
-    border-bottom: 3px solid #FFFFFF;
+.category {
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #ffffff;
 }
 
-.activeCategory{
-    display: inline;
-    height: fit-content;
-    padding: 0 calc-height(16px);
-    border-bottom: 3px solid #5ECE7B;
+.activeCategory {
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #5ece7b;
 }
 
-.category{
-    display: inline;
-    height: fit-content;
-    padding: 0 calc-height(16px);
-    border-bottom: 3px solid #FFFFFF;
+.category {
+  display: inline;
+  height: fit-content;
+  padding: 0 calc-height(16px);
+  border-bottom: 3px solid #ffffff;
 }
 
-.category:hover{
-    border-bottom: 3px solid #5ECE7B;
-    cursor: pointer;
+.category:hover {
+  border-bottom: 3px solid #5ece7b;
+  cursor: pointer;
 }
 
-.activeLabel{
-    width: fit-content;
-    height: calc-height(50px);
+.activeLabel {
+  width: fit-content;
+  height: calc-height(50px);
 }
 
-.label{
-    width: fit-content;
-    height: calc-height(50px);
+.label {
+  width: fit-content;
+  height: calc-height(50px);
 }
 
-.activeText{
-    width: fit-content;
-    height: fit-content;
+.activeText {
+  width: fit-content;
+  height: fit-content;
 
-    font-family: 'Raleway', serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 120%;
+  font-family: "Raleway", serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 120%;
 
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 
-    color: #5ECE7B;
-
+  color: #5ece7b;
 }
 
-.text{
-    width: fit-content;
-    height: fit-content;
+.text {
+  width: fit-content;
+  height: fit-content;
 
-    font-family: 'Raleway', serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 120%;
+  font-family: "Raleway", serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 120%;
 
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 
-    color: #1D1F22;
+  color: #1d1f22;
 }
 
 .category:hover .text {
-    font-weight: 600;
-    color: #5ECE7B;
+  font-weight: 600;
+  color: #5ece7b;
 }
