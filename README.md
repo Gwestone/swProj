@@ -12,7 +12,7 @@ In the project directory, you need to clone a project
 
 after downloading the project from GitHub you need to installing all npm packages
 
-### `swProj`
+### `cd swProj`
 ### `npm install`
 
 ### 1.2 download graphql endpoint
@@ -22,11 +22,13 @@ you need to install graphql endpoint from `Gwestone/react-endpoint`
 ### `git clone https://github.com/Gwestone/react-endpoint.git`
 ### `cd react-endpoint`
 ### `yarn install`
+### `yarn build`
 ### `yarn start`
 
 ## 2. Project run
 
-after installing packages and setup endpoint the project can run 
+### `Open new terminal` 
+after installing packages and setup endpoint the project can run
 
 ### `cd 'swProj location'`
 ### `npm run start`
