@@ -1,5 +1,7 @@
 # Shop project
 
+![main page](https://raw.githubusercontent.com/Gwestone/swProj/master/markdown/title1.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## 1. Project setup
@@ -41,3 +43,7 @@ after installing packages and setup endpoint the project can run
 - decrease item count to zero to delete item from cart
 - app icon is a link to main page
 - global state is persistent (will save during updates)
+
+### 5. Screenshots
+![cart widget](https://raw.githubusercontent.com/Gwestone/swProj/master/markdown/title2.png)
+![cart page](https://raw.githubusercontent.com/Gwestone/swProj/master/markdown/title3.png)
