@@ -1,49 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap");
 
-@import "../../assets/css/calc";
-
 .main {
-  padding-top: calc-height(80px);
-  padding-left: 5%;
-  overflow: clip;
+  padding-top: 12vh;
+  width: 89vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .title {
   text-transform: capitalize;
-  /* Title */
-  margin-top: calc-height(75px);
-  margin-bottom: calc-height(100px);
-  width: fit-content;
-  height: fit-content;
+  margin-top: 11vh;
+  margin-bottom: 15vh;
 
-  /* Heading / Desktop / H2 */
-
-  font-family: "Raleway", serif;
-  font-style: normal;
-  font-weight: 400;
   font-size: 56px;
-  line-height: 160%;
-  /* identical to box height, or 67px */
-
-  display: flex;
-  align-items: center;
-
-  /* --c-text */
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc-width(386px), 1fr));
+  //TODO solve grid adaptive repeating
+  grid-template-columns: repeat(auto-fill, minmax(27.7vw, 1fr));
   grid-gap: 1rem;
-  grid-row-gap: calc-height(103px);
-  margin-bottom: 100px;
+  grid-row-gap: 15vh;
+  margin-bottom: 10vh;
 }
 
 .product {
   background: #ffffff;
-  width: calc-width(386px);
+  width: 27.7vw;
   height: fit-content;
 }
 
@@ -53,21 +38,8 @@
 
 .card {
   position: relative;
-
-  width: 87%;
   margin: 0 auto;
-  padding-right: 35px;
-  padding-top: 20px;
-  /*box-shadow: gray 1px 1px 200px;*/
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  //width: fit-content;
-  height: fit-content;
-
-  /* --c-white */
+  padding: 1vw 1vw 30px;
 }
 
 .cardStockOut {
@@ -76,60 +48,31 @@
 }
 
 .cardImage {
-  display: inline-block;
-  max-width: calc-width(354px);
-  height: calc(470px / 1.07);
+  max-width: 25vw;
+  height: 47vh;
 }
 
 .cardTitle {
-  /* Title */
-
-  margin-top: calc-height(10px);
-
-  width: fit-content;
-  height: fit-content;
-
-  font-family: "Raleway", serif;
-  font-style: normal;
-  font-weight: 400;
+  margin-top: 1.5vh;
   font-size: 24px;
-  line-height: 160%;
-  /* identical to box height, or 29px */
-
-  display: flex;
-  left: 0;
-
-  /* --c-black */
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .cardPrice {
-  width: fit-content;
-  height: fit-content;
 
-  /* --price-regular-font */
-
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 500;
   margin-top: 2px;
   font-size: 25px;
   margin-bottom: 30px;
-  /* identical to box height, or 29px */
 
-  left: 0;
-
-  /* --c-black */
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .outStock {
-  font-family: "Raleway", serif;
-  font-weight: 400;
   font-size: 32px;
-  -webkit-text-stroke: 1px #8d8f9a;
+  //TODO set variable in index
   color: #1d1f22;
   position: absolute;
   left: 23%;
@@ -155,7 +98,6 @@
   cursor: pointer;
   right: 7%;
   bottom: 13%;
-  filter: contrast(1.25);
 }
 
 .imgContainer {

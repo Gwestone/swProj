@@ -1,35 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
 
-@import "../../assets/css/calc";
-
-// navbar
-//************************************
+//TODO solve navbar tilt when change category
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: calc(80px * #{$heightCoeff});
-  z-index: 99;
+  height: 12vh;
+  z-index: 1000;
+  //TODO set variable in index
   background: #ffffff;
 }
 
 .icon {
   position: absolute;
-  height: calc-height(32px);
-  width: calc-width(32px);
-  left: calc(50% - calc(15px * #{$widthCoeff}));
-  right: calc(50% - calc(16px * #{$widthCoeff}));
-  top: calc-height(28px);
-  bottom: calc-height(15px);
+  height: 4vh;
+  width: 4vw;
+  left: calc(50% - 4vw);
+  top: 4vh;
 }
 
 .rightCategories {
   position: absolute;
-  right: 0;
-  top: calc-height(24px);
-  margin-right: calc-width(75px);
-  margin-bottom: calc-height(24px);
+  top: 3vh;
+  right: 7vw;
   list-style-type: none;
   display: flex;
   text-decoration: none;
@@ -46,72 +38,51 @@
   text-decoration: none;
 }
 
-//Categories
-//*****************************
-
 .categories {
-  margin-left: calc-width(97px);
-  margin-top: calc-height(28px);
-
-  /* Auto layout */
+  margin-left: 7vw;
+  margin-top: 4.5vh;
 
   display: flex;
   flex-direction: row;
-  width: fit-content;
-  height: fit-content;
 }
-
-@media (max-width: 900px) {
-  .categories {
-    margin-left: calc-width(10px);
-  }
-}
-
-//category
-//*****************************
 
 .category {
   display: inline;
   height: fit-content;
-  padding: 0 calc-height(16px);
+  padding: 0 1.5rem;
   border-bottom: 3px solid #ffffff;
 }
 
 .activeCategory {
   display: inline;
   height: fit-content;
-  padding: 0 calc-height(16px);
+  padding: 0 1.5rem;
+  //TODO set variable in index
   border-bottom: 3px solid #5ece7b;
 }
 
 .category {
   display: inline;
   height: fit-content;
-  padding: 0 calc-height(16px);
+  padding: 0 1rem;
   border-bottom: 3px solid #ffffff;
 }
 
 .category:hover {
+  //TODO set variable in index
   border-bottom: 3px solid #5ece7b;
   cursor: pointer;
 }
 
 .activeLabel {
-  width: fit-content;
-  height: calc-height(50px);
+  height: 7vh;
 }
 
 .label {
-  width: fit-content;
-  height: calc-height(50px);
+  height: 7vh;
 }
 
 .activeText {
-  width: fit-content;
-  height: fit-content;
-
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 600;
   font-size: 21px;
   line-height: 120%;
@@ -119,15 +90,12 @@
   text-align: center;
   text-transform: uppercase;
 
+  //TODO set variable in index
   color: #5ece7b;
 }
 
 .text {
-  width: fit-content;
-  height: fit-content;
 
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 21px;
   line-height: 120%;
@@ -135,10 +103,12 @@
   text-align: center;
   text-transform: uppercase;
 
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .category:hover .text {
   font-weight: 600;
+  //TODO set variable in index
   color: #5ece7b;
 }

@@ -6,8 +6,12 @@ import CartOverlay from "./CartOverlay/CartOverlay";
 import Categories from "./Categories/Categories";
 import { Link } from "react-router-dom";
 
+let rerender = 0;
+
 class Navbar extends Component {
     render() {
+        rerender++;
+        console.warn(`🔴component Navbar got rerender: ${rerender} times`)
         return (
             <div className={styles.navbar}>
                 <Categories />
@@ -19,7 +23,7 @@ class Navbar extends Component {
                         <Currency />
                     </li>
                     <li>
-                        <CartOverlay />
+                       <CartOverlay />
                     </li>
                     <li></li>
                 </ul>

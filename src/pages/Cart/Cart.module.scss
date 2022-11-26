@@ -2,30 +2,20 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Roboto&family=Roboto+Condensed:wght@700&display=swap");
 
-@import "../../assets/css/calc";
-
 .main {
-  padding-top: calc(150px + 80px);
-  padding-left: 135px;
-  padding-right: 100px;
+  padding-top: calc(15vh + 80px);
+  margin-left: 7.5vw;
+  margin-right: 100px;
 }
 
 .title {
-  width: 84px;
-  height: 40px;
-  left: 100px;
-  top: 160px;
   text-transform: uppercase;
 
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 43px;
   line-height: 40px;
+  //
   margin-bottom: 80px;
-}
-
-.container {
 }
 
 .elem {
@@ -33,10 +23,10 @@
   grid-gap: 40px;
   grid-template-columns: 75% 40px 1fr;
 
-  padding-top: calc-height(21px);
-  padding-bottom: calc-height(21px);
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 
-  height: fit-content;
+  //TODO set variable in index
   border-bottom: #e5e5e5 solid 1px;
   border-top: #e5e5e5 solid 1px;
   margin-top: -2px;
@@ -48,21 +38,14 @@
   }
 }
 
-.controls {
-  /*margin-left: 16px;*/
-}
-
 .itemSize {
   font-family: "Roboto Condensed", serif;
   text-transform: uppercase;
-  font-style: normal;
   margin-top: 10px;
   margin-bottom: 9px;
   font-weight: 500;
   font-size: 25px;
-  /* identical to box height, or 114% */
-  display: flex;
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
@@ -73,19 +56,12 @@
 .itemColor {
   font-family: "Roboto Condensed", serif;
   text-transform: uppercase;
-  font-style: normal;
   margin-top: 15px;
   margin-bottom: 12px;
   font-weight: 500;
   font-size: 24px;
-  /* identical to box height, or 114% */
-  display: flex;
-
+  //TODO set variable in index
   color: #1d1f22;
-}
-
-.itemColorSelector {
-  width: fit-content;
 }
 
 .itemCount {
@@ -100,92 +76,68 @@
 }
 
 .itemCountDisplay {
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 32px;
-  /* identical to box height, or 26px */
-
-  text-align: left;
 
   color: #1d1f22;
   margin-right: 38px;
 }
 
+
+//TODO make image container responsive
 .itemImgContainer {
   position: relative;
   top: 47%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: calc-width(200px);
-  height: calc-height(288px);
+  overflow: clip;
+  max-height: 50vh;
+  max-width: 20vw;
 }
 
 .itemImg {
   position: absolute;
   max-width: 265px;
-  width: fit-content;
-  height: fit-content;
   right: 0;
   bottom: 0;
 }
 
 .itemTitle {
-  width: fit-content;
-  height: fit-content;
 
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 600;
   font-size: 41px;
-  /* or 26px */
-
-  display: flex;
-  align-items: center;
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .itemSubtitle {
-  width: fit-content;
-  height: fit-content;
-
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 41px;
-  /* or 26px */
-
-  margin-top: calc-height(8px);
-  display: flex;
-  align-items: center;
-
+  margin-top: 1vh;
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .itemPrice {
   margin-top: 7px;
   margin-bottom: 20px;
-  font-family: "Raleway", serif;
-  font-style: normal;
+
   font-weight: 700;
-  left: 0;
   padding-top: 5px;
   font-size: 33px;
 
-  /* identical to box height, or 26px */
-
   text-align: left;
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .itemSizeSelector > button {
   display: inline;
+  //TODO set variable in index
   background: #ffffff;
   border: #1d1f22 solid 2px;
-  width: calc-width(63px);
-  height: calc-height(45px);
+  width: 4.5vw;
+  height: 7.2vh;
   margin-right: 10px;
   font-family: "Source Sans Pro", serif;
   font-weight: 500;
@@ -206,16 +158,18 @@
   display: inline;
   color: transparent;
   border: #ffffff solid 2px;
-  width: calc-width(35px);
-  height: calc-height(35px);
+  width: 2.5vw;
+  height: 5.2vh;
   margin-right: 7px;
 }
 
 .itemColorSelector > button.active {
+  //TODO set variable in index
   box-shadow: 0 0 0 2px #5ece7b;
 }
 
 .itemColorSelector > button:hover {
+  //TODO set variable in index
   box-shadow: 0 0 0 2px #5ece7b;
 }
 
@@ -224,6 +178,7 @@
   display: inline-flex;
   align-items: center;
   padding-left: 15px;
+  //TODO set variable in index
   background: #ffffff;
   border: #1d1f22 solid 2px;
   width: 60px;
@@ -245,26 +200,21 @@
 }
 
 .label {
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 32px;
   line-height: 28px;
-  /* identical to box height, or 117% */
-  margin-top: 20px;
 
+  margin-top: 20px;
+  //TODO set variable in index
   color: #1d1f22;
 }
 
 .number {
-  font-family: "Raleway", serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 28px;
   margin-top: 20px;
-  /* identical to box height, or 117% */
-
+  //TODO set variable in index
   color: #1d1f22;
 }
 
@@ -283,14 +233,12 @@
   margin-left: 10px;
 }
 
-.payButtonContainer {
-}
-
 .payButton {
   text-transform: uppercase;
+  //TODO set variable in index
   background: #5ece7b;
   color: #ffffff;
-  font-family: "Raleway", serif;
+  //TODO set variable in index
   border: #5ece7b solid 2px;
   font-size: 18px;
   padding: 15px 150px;
@@ -298,6 +246,7 @@
 }
 
 .payButton:hover {
+  //TODO set variable in index
   background: #4fad66;
 }
 
@@ -313,6 +262,7 @@
 
 .switchGroup > div > button {
   margin: 4px;
+  //TODO set variable in index
   background: #1d1f22;
   color: #ffffff;
   padding: 1px 5px;

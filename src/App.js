@@ -14,9 +14,7 @@ class App extends Component {
           <Navbar />
           <Routes>
             <Route path={"/"} element={<Main />} />
-
             <Route path="/details/:id" element={<Details />} />
-
             <Route path={"/cart"} element={<Cart />} />
           </Routes>
         </BrowserRouter>

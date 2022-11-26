@@ -1,14 +1,11 @@
-@import "../../../assets/css/calc";
-
 .dropdown {
     position: relative;
     display: inline-block;
 }
 .dropdownContent {
+    //TODO set variable in index
     background: #ffffff;
-    width: fit-content;
-    height: fit-content;
-    right: -60px;
+    right: -2vw;
     box-shadow: 0 0 50px -30px rgba(0,0,0,0.5);
     display: none;
     position: absolute;
@@ -17,7 +14,6 @@
 }
 
 .btn{
-    width: fit-content;
     height: 60px;
     padding: 10px;
     margin-top: -5px;
@@ -25,41 +21,26 @@
     border: none;
 }
 
-/*.btn:active{*/
-/*    background: #ffffff;*/
-/*}*/
-
 .currencyIcon{
-    width: fit-content;
-    height: fit-content;
 
     display: inline;
-    /* --price-regular-font */
 
-    font-family: 'Raleway', serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 25px;
     line-height: 160%;
-    margin-right: calc-width(10px);
-    /* identical to box height, or 29px */
-
-    align-items: flex-end;
+    margin-right: 0.5vw;
 
 }
 
-/* Links inside the dropdown */
 .dropdownContent div {
-    color: black;
+    //TODO set variable in index
+    color: #1d1f22;
     padding: 25px 25px;
     text-decoration: none;
-    display: block;
-    font-family: "Raleway", serif;
     font-weight: 500;
     font-size: 23px;
 }
 
-/* Change color of dropdown links on hover */
 .dropdownContent>div:hover {
     background: #fafafa;
     cursor: pointer;
@@ -69,29 +50,24 @@
     background: #fafafa;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdownContent {
     display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .btn {
     background: #fafafa;
 }
 
 .arrow{
-    width: calc-width(7px);
-    height: calc-height(5px);
-    left: 2px;
-    bottom: 2px;
+    width: 0.5vw;
+    height: 0.5vh;
+    bottom: 5px;
     position: relative;
-    margin-right: calc-width(4px);
 
     transition: all 0.4s ease;
     transform: rotateZ(0deg);
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .arrow {
     transition: all 0.4s ease;
     transform: rotateZ(180deg);
