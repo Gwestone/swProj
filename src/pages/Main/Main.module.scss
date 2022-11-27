@@ -4,9 +4,9 @@
 
 .main {
   padding-top: 12vh;
-  width: 89vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
@@ -20,17 +20,26 @@
 
 .products {
   display: grid;
-  //TODO solve grid adaptive repeating
-  grid-template-columns: repeat(auto-fill, minmax(27.7vw, 1fr));
+  //grid-template-columns: repeat(auto-fill, minmax(27.7vw, 1fr));
   grid-gap: 1rem;
   grid-row-gap: 15vh;
   margin-bottom: 10vh;
 }
 
+@media screen and (min-width: 1075px) {
+  .products { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (min-width: 1650px) {
+  .products { grid-template-columns: repeat(3, 1fr); }
+}
+
 .product {
   background: $base-background-color;
-  width: 27.7vw;
+  width: 500px  ;
   height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product:hover {
@@ -49,7 +58,7 @@
 }
 
 .cardImage {
-  max-width: 25vw;
+  max-width: 500px;
   height: 47vh;
 }
 

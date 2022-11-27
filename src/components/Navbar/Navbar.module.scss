@@ -2,7 +2,6 @@
 
 @import "../../assets/css/const";
 
-//TODO solve navbar tilt when change category
 .navbar {
   position: fixed;
   width: 100%;
@@ -64,7 +63,7 @@
 .category {
   display: inline;
   height: fit-content;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   border-bottom: 3px solid $base-background-color;
 }
 
