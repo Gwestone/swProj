@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React  from "react";
 import Attribute from "./Attribute";
 
-class Attributes extends Component {
-  onSelect(id, value) {
-    this.props.onSelect(id, value);
-  }
+//TODO solve bug with selection
+function Attributes({onSelect, attributes, productAttributes}){
 
-  renderSelectors() {
-    return this.props.attributes.map((elem, index) => {
+  function renderSelectors() {
+    return attributes.map((elem, index) => {
       return (
         <Attribute
           name={elem.name}
@@ -15,22 +13,20 @@ class Attributes extends Component {
           id={elem.id}
           items={elem.items}
           key={index}
-          onSelect={(id, value) => this.onSelect(id, value)}
-          productAttributes={this.props.productAttributes}
+          onSelect={(id, value) => onSelect(id, value)}
+          productAttributes={productAttributes}
         />
       );
     });
   }
 
-  render() {
     return (
       <div className="attributes">
         {/*{this.renderTextSelector()}*/}
         {/*make 2*/}
-        {this.renderSelectors()}
+        {renderSelectors()}
       </div>
     );
-  }
 }
 
 export default Attributes;

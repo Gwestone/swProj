@@ -1,33 +1,27 @@
-import { Component } from "react";
 import styles from "../Navbar.module.scss";
 import { Link } from "react-router-dom";
 
-class Category extends Component {
-  static defaultProps = {
-    name: "not found",
-    active: false,
-  };
+function Category({active = false, onClick, name = "not found"}){
 
-  render() {
-    return (
+  return (
       <li
-        className={this.props.active ? styles.activeCategory : styles.category}
-        onClick={this.props.onClick}
+        className={active ? styles.activeCategory : styles.category}
+        onClick={onClick}
       >
         <Link to={"/"} className={styles.link}>
           <div
-            className={this.props.active ? styles.activeLabel : styles.label}
+            className={active ? styles.activeLabel : styles.label}
           >
             <div
-              className={this.props.active ? styles.activeText : styles.text}
+              className={active ? styles.activeText : styles.text}
             >
-              {this.props.name}
+              {name}
             </div>
           </div>
         </Link>
       </li>
     );
-  }
+
 }
 
 export default Category;

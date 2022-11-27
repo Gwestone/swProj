@@ -1,38 +1,36 @@
-import { Component } from "react";
 import styles from "../Navbar.module.scss";
-import { Query } from "@apollo/client/react/components";
 import GET_CATEGORIES from "../../../queries/GET_CATEGORIES";
 import Category from "./Category";
 import { connect } from "react-redux";
 import { setCategory } from "../../../app/categorySlicer";
+import {useQuery} from "@apollo/client";
 
-class Categories extends Component {
-  handleClick(id) {
-    this.props.setCategory(id);
+function Categories({value, setCategory}){
+
+  const { loading, error, data } = useQuery(GET_CATEGORIES);
+
+  function handleClick(id) {
+    setCategory(id);
   }
 
-  render() {
-    const active = this.props.value;
+  function unwrapCategories(loading, error, data){
+    if (loading) return <div>...</div>;
+    else
+      return data.categories.map(({ name }, index) => (
+          <Category
+              name={name}
+              key={index}
+              onClick={() => handleClick(name)}
+              active={value === name}
+          />
+      ));
+  }
 
     return (
       <ul className={styles.categories}>
-        <Query query={GET_CATEGORIES}>
-          {({ loading, data }) => {
-            if (loading) return <div>...</div>;
-            else
-              return data.categories.map(({ name }, index) => (
-                <Category
-                  name={name}
-                  key={index}
-                  onClick={() => this.handleClick(name)}
-                  active={active === name}
-                />
-              ));
-          }}
-        </Query>
+        {unwrapCategories(loading, error, data)}
       </ul>
     );
-  }
 }
 
 const categoryStateToProps = (state) => {

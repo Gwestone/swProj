@@ -1,18 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Main.module.scss";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Products from "./Products/Products";
 
-class Main extends Component {
-  render() {
-    const selectedCategory = this.props.value;
+function Main({value}){
     return (
       <div className={styles.main}>
-        <h2 className={styles.title}>{selectedCategory}</h2>
+        <h2 className={styles.title}>{value}</h2>
         <Products />
       </div>
     );
-  }
 }
 
 const categoryStateToProps = (state) => {

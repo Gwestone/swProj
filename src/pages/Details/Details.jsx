@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import styles from "./Details.module.scss";
 import GET_PRODUCT from "../../queries/GET_PRODUCT";
 import { Query } from "@apollo/client/react/components";
@@ -9,53 +9,50 @@ import { addCart } from "../../app/cartSlicer";
 import { Navigate } from "react-router-dom";
 import parse from "html-react-parser";
 
-class Details extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectImage: 0,
-      productAttributes: {},
-      redirect: false,
-    };
-  }
+function Details({label, addCart, symbol}){
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     selectImage: 0,
+  //     productAttributes: {},
+  //     redirect: false,
+  //   };
+  // }
 
-  getPrice(prices) {
+  const [selectImage, setSelectImage] = useState(0)
+  const [productAttributes, setProductAttributes] = useState({})
+  const [redirect, setRedirect] = useState(false)
+
+  function getPrice(prices) {
     return prices.find((price) => {
-      return price.currency.label === this.props.label;
+      return price.currency.label === label;
     }).amount;
   }
 
-  handleHover(key) {
-    this.setState({ ...this.state, selectImage: key });
+  function handleHover(key) {
+    setSelectImage(key);
   }
 
-  handleSelect(id, value) {
-    let productAttributes = this.state.productAttributes;
+  function handleSelect(id, value) {
     productAttributes[id] = value;
-    this.setState({
-      ...this.state,
-      productAttributes: productAttributes,
-    });
+    setProductAttributes(productAttributes)
   }
 
-  handleAddCart(id, productAttributes, prices) {
-    this.props.addCart({
+  function handleAddCart(id, productAttributes, prices) {
+    addCart({
       id: id,
       productAttributes: productAttributes,
       quantity: 1,
       prices: prices,
     });
-    this.setState({
-      ...this.state,
-      redirect: true,
-    });
+    setRedirect(true);
   }
 
-  renderBuyButton(product, id) {
+  function renderBuyButton(product, id) {
     return product.inStock ? (
       <button
         onClick={() =>
-          this.handleAddCart(id, this.state.productAttributes, product.prices)
+          handleAddCart(id, productAttributes, product.prices)
         }
         className={styles.addCart}
       >
@@ -66,7 +63,6 @@ class Details extends Component {
     );
   }
 
-  render() {
     const id = window.location.pathname.split("/").pop();
 
     return (
@@ -108,12 +104,12 @@ class Details extends Component {
                   <div className={styles.content}>
                     <Gallery
                       product={product}
-                      onHover={(key) => this.handleHover(key)}
-                      selectedImage={this.state.selectImage}
+                      onHover={(key) => handleHover(key)}
+                      selectedImage={selectImage}
                     />
                     <div className={styles.image}>
                       <img
-                        src={product.gallery[this.state.selectImage]}
+                        src={product.gallery[selectImage]}
                         alt={""}
                       />
                     </div>
@@ -124,16 +120,16 @@ class Details extends Component {
                       <Attributes
                         attributes={product.attributes}
                         onSelect={(id, value) => {
-                          this.handleSelect(id, value);
+                          handleSelect(id, value);
                         }}
-                        productAttributes={this.state.productAttributes}
+                        productAttributes={productAttributes}
                       />
                       <div className={styles.costLabel}>Price:</div>
                       <div className={styles.cost}>
-                        {this.props.symbol} {this.getPrice(product.prices)}
+                        {symbol} {getPrice(product.prices)}
                       </div>
                       {/*buy button*/}
-                      <div>{this.renderBuyButton(product, id)}</div>
+                      <div>{renderBuyButton(product, id)}</div>
                       {/*description*/}
                       <div className={styles.description}>
                         {parse(product.description)}
@@ -145,10 +141,9 @@ class Details extends Component {
             }
           }}
         </Query>
-        {this.state.redirect ? <Navigate to={"/"} /> : ""}
+        {redirect ? <Navigate to={"/"} /> : ""}
       </>
     );
-  }
 }
 
 const currencyStateToProps = (state) => {

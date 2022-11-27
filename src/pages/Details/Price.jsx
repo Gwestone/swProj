@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Price extends Component {
-  getPrice() {
-    const prices = this.props.prices;
+function Price({prices}){
+  function getPrice() {
     return prices.find((price) => {
       if (price.currency.label === this.props.selected) {
         return { symbol: price.currency.symbol, amount: price.amount };
@@ -11,14 +10,13 @@ class Price extends Component {
     });
   }
 
-  render() {
-    const price = this.getPrice();
+    const price = getPrice();
     return (
       <>
         {price.currency.symbol} {price.amount}
       </>
     );
-  }
+
 }
 
 export default Price;

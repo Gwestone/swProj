@@ -1,33 +1,27 @@
-import React, { Component } from "react";
+import React  from "react";
 import styles from "../Details.module.scss";
 
-class Attribute extends Component {
-  handleClick(id, value) {
-    this.props.onSelect(id, value);
+function Attribute({onSelect, id, items, productAttributes, type, name}){
+  function handleClick(id, value) {
+    onSelect(id, value);
   }
 
-  componentDidMount() {
-    // console.log(`${this.props.id}-${this.props.items[0].id}`);
-    this.handleClick(this.props.id, this.props.items[0].id);
-  }
-
-  renderSelectors() {
-    let productAttributes = this.props.productAttributes;
+  function renderSelectors() {
     let toFind = null;
-    if (this.props.id in productAttributes) {
-      toFind = productAttributes[this.props.id];
+    if (id in productAttributes) {
+      toFind = productAttributes[id];
     }
-    if (this.props.type === "text") {
+    if (type === "text") {
       return (
         <>
-          <div className={styles.textLabel}>{this.props.name}:</div>
+          <div className={styles.textLabel}>{name}:</div>
           <div className={styles.buttonsGroup}>
             {/*<button className={styles.active}>XS</button>*/}
-            {this.props.items.map((elem, index) => {
+            {items.map((elem, index) => {
               return (
                 <button
                   className={elem.id === toFind ? styles.active : ""}
-                  onClick={(_) => this.handleClick(this.props.id, elem.id)}
+                  onClick={(_) => handleClick(id, elem.id)}
                   key={index}
                 >
                   {elem.value}
@@ -38,17 +32,17 @@ class Attribute extends Component {
         </>
       );
     }
-    if (this.props.type === "swatch") {
+    if (type === "swatch") {
       return (
         <>
-          <div className={styles.colorLabel}>{this.props.name}:</div>
+          <div className={styles.colorLabel}>{name}:</div>
           <div className={styles.pallet}>
             {/*<button className={styles.active}>XS</button>*/}
-            {this.props.items.map((elem, index) => {
+            {items.map((elem, index) => {
               return (
                 <button
                   className={elem.id === toFind ? styles.active : ""}
-                  onClick={(_) => this.handleClick(this.props.id, elem.id)}
+                  onClick={(_) => handleClick(id, elem.id)}
                   style={{ background: elem.value }}
                   key={index}
                 ></button>
@@ -60,9 +54,8 @@ class Attribute extends Component {
     }
   }
 
-  render() {
-    return <div className="attributes">{this.renderSelectors()}</div>;
-  }
+  return <div className="attributes">{renderSelectors()}</div>;
+
 }
 
 export default Attribute;

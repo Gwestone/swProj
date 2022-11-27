@@ -1,51 +1,47 @@
 import styles from "./Currency.module.scss";
-import { Component } from "react";
 import arrow from "../../../assets/svg/arrow.svg";
-import { Query } from "@apollo/client/react/components";
 import GET_CURRENCIES from "../../../queries/GET_CURRENCIES";
 import { setCurrency } from "../../../app/currencySlicer";
 import { connect } from "react-redux";
+import {useQuery} from "@apollo/client";
 
-class Currency extends Component {
-  handleCurrencySelect(symbol, label) {
-    this.props.setCurrency({ symbol: symbol, label: label });
+function Currency({symbol, label, setCurrency}){
+  function handleCurrencySelect(symbol, label) {
+    setCurrency({ symbol: symbol, label: label });
   }
 
-  render() {
-    const currentCurrency = this.props.label;
+    const currentCurrency = label;
+
+    const { loading, error, data } = useQuery(GET_CURRENCIES);
+
+    function unwrapCurrencies(loading, error, data){
+        if (loading) return <div>...</div>;
+        else
+            return data.currencies.map(({ symbol, label }, index) => (
+                <div
+                    className={currentCurrency === label ? styles.active : ""}
+                    onClick={() => {
+                        handleCurrencySelect(symbol, label);
+                    }}
+                    key={index}
+                >
+                    {symbol} {label}
+                </div>
+            ));
+    }
 
     return (
       <div className={styles.dropdown}>
         <button className={styles.btn}>
-          <div className={styles.currencyIcon}>{this.props.symbol}</div>
+          <div className={styles.currencyIcon}>{symbol}</div>
           <img className={styles.arrow} src={arrow} alt="" />
         </button>
 
         <div className={styles.dropdownContent}>
-          <Query query={GET_CURRENCIES}>
-            {({ loading, data }) => {
-              /**
-               * @param {{currencies:[{label:string,symbol:string}]}} data
-               */
-              if (loading) return <div>...</div>;
-              else
-                return data.currencies.map(({ symbol, label }, index) => (
-                  <div
-                    className={currentCurrency === label ? styles.active : ""}
-                    onClick={() => {
-                      this.handleCurrencySelect(symbol, label);
-                    }}
-                    key={index}
-                  >
-                    {symbol} {label}
-                  </div>
-                ));
-            }}
-          </Query>
+            {unwrapCurrencies(loading, error, data)}
         </div>
       </div>
     );
-  }
 }
 
 const currencyStateToProps = (state) => {
