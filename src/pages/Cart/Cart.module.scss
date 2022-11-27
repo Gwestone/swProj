@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Roboto&family=Roboto+Condensed:wght@700&display=swap");
 
+@import "../../assets/css/const";
+
 .main {
   padding-top: calc(15vh + 80px);
   margin-left: 7.5vw;
@@ -26,9 +28,8 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
 
-  //TODO set variable in index
-  border-bottom: #e5e5e5 solid 1px;
-  border-top: #e5e5e5 solid 1px;
+  border-bottom: $base-background-selected-color solid 1px;
+  border-top: $base-background-selected-color solid 1px;
   margin-top: -2px;
 }
 
@@ -45,8 +46,7 @@
   margin-bottom: 9px;
   font-weight: 500;
   font-size: 25px;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .itemSizeSelector {
@@ -60,8 +60,7 @@
   margin-bottom: 12px;
   font-weight: 500;
   font-size: 24px;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .itemCount {
@@ -79,7 +78,7 @@
   font-weight: 500;
   font-size: 32px;
 
-  color: #1d1f22;
+  color: $base-text-color;
   margin-right: 38px;
 }
 
@@ -106,16 +105,14 @@
 
   font-weight: 600;
   font-size: 41px;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .itemSubtitle {
   font-weight: 400;
   font-size: 41px;
   margin-top: 1vh;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .itemPrice {
@@ -127,15 +124,13 @@
   font-size: 33px;
 
   text-align: left;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .itemSizeSelector > button {
   display: inline;
-  //TODO set variable in index
-  background: #ffffff;
-  border: #1d1f22 solid 2px;
+  background: $base-background-color;
+  border: $base-text-color solid 2px;
   width: 4.5vw;
   height: 7.2vh;
   margin-right: 10px;
@@ -145,32 +140,30 @@
 }
 
 .itemSizeSelector > button:hover {
-  color: #ffffff;
-  background: #1d1f22;
+  color: $base-background-color;
+  background: $base-text-color;
 }
 
 .itemSizeSelector > button.active {
-  color: #ffffff;
-  background: #1d1f22;
+  color: $base-background-color;
+  background: $base-text-color;
 }
 
 .itemColorSelector > button {
   display: inline;
   color: transparent;
-  border: #ffffff solid 2px;
+  border: $base-background-color solid 2px;
   width: 2.5vw;
   height: 5.2vh;
   margin-right: 7px;
 }
 
 .itemColorSelector > button.active {
-  //TODO set variable in index
-  box-shadow: 0 0 0 2px #5ece7b;
+  box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .itemColorSelector > button:hover {
-  //TODO set variable in index
-  box-shadow: 0 0 0 2px #5ece7b;
+  box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .itemCount > button {
@@ -178,9 +171,8 @@
   display: inline-flex;
   align-items: center;
   padding-left: 15px;
-  //TODO set variable in index
-  background: #ffffff;
-  border: #1d1f22 solid 2px;
+  background: $base-background-color;
+  border: $base-text-color solid 2px;
   width: 60px;
   height: 60px;
   font-weight: 300;
@@ -189,8 +181,8 @@
 }
 
 .itemCount > button:hover {
-  color: #ffffff;
-  background: #1d1f22;
+  color: $base-background-color;
+  background: $base-text-color;
 }
 
 .itemMinus {
@@ -205,8 +197,7 @@
   line-height: 28px;
 
   margin-top: 20px;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .number {
@@ -214,8 +205,7 @@
   font-size: 32px;
   line-height: 28px;
   margin-top: 20px;
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .stats {
@@ -235,19 +225,16 @@
 
 .payButton {
   text-transform: uppercase;
-  //TODO set variable in index
-  background: #5ece7b;
-  color: #ffffff;
-  //TODO set variable in index
-  border: #5ece7b solid 2px;
+  background: $base-active-color;
+  color: $base-background-color;
+  border: $base-active-color solid 2px;
   font-size: 18px;
   padding: 15px 150px;
   margin-bottom: 50px;
 }
 
 .payButton:hover {
-  //TODO set variable in index
-  background: #4fad66;
+  background: $base-active-selected-color;
 }
 
 .switchGroup {
@@ -262,9 +249,8 @@
 
 .switchGroup > div > button {
   margin: 4px;
-  //TODO set variable in index
-  background: #1d1f22;
-  color: #ffffff;
+  background: $base-text-color;
+  color: $base-background-color;
   padding: 1px 5px;
   font-size: 20px;
   opacity: 0.9;

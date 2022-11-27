@@ -1,3 +1,5 @@
+@import "../../../assets/css/const";
+
 .dropdown {
     margin-left: 10px;
     position: relative;
@@ -5,8 +7,7 @@
 }
 
 .dropdownContent {
-    //TODO set variable in index
-    background: #ffffff;
+    background: $base-background-color;
     right: -15px;
     display: none;
     position: absolute;
@@ -27,13 +28,11 @@
 }
 
 .btn:active{
-    //TODO set variable in index
-    background: #ffffff;
+    background: $base-background-color;
 }
 
 .dropdownContent a {
-    //TODO set variable in index
-    color: #1d1f22;
+    color: $base-text-color;
     padding: 20px 30px;
     text-decoration: none;
     display: block;
@@ -42,13 +41,11 @@
 
 .dropdown:hover .dropdownContent {
     display: block;
-    //TODO Fix background shadow
-    box-shadow: 0 4034px 0 4000px rgba(147, 147, 147, 0.65);
+    box-shadow: 0 4034px 0 4000px $base-shadow-color;
 }
 
 .dropdown:hover .btn {
-    //TODO set variable in index
-    background: #fafafa;
+    background: $base-background-selected-color;
 }
 .myBag{
     font-weight: 700;
@@ -56,8 +53,7 @@
     line-height: 160%;
 
     display: inline;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .itemsCount{
@@ -66,8 +62,7 @@
     line-height: 160%;
 
     display: inline;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .item{
@@ -86,8 +81,7 @@
     font-weight: 300;
     font-size: 22px;
     line-height: 145%;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .itemImgContainer{
@@ -113,8 +107,7 @@
     font-weight: 600;
     padding-top: 5px;
     font-size: 21px;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .itemSize{
@@ -123,8 +116,7 @@
     font-size: 22px;
     line-height: 160%;
     display: flex;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 .controls{
     margin-left: 16px;
@@ -137,9 +129,8 @@
 .itemSizeSelector>button{
     overflow: clip;
     display: inline;
-    //TODO set variable in index
-    background: #FFFFFF;
-    border: #1D1F22 solid 2px;
+    background: $base-background-color;
+    border: $base-text-color solid 2px;
     width: 32px;
     height: 32px;
     margin-right: 9px;
@@ -149,17 +140,15 @@
 }
 
 .itemSizeSelector>button:hover{
-    //TODO set variable in index
-    background: #1D1F22;
-    border: #1D1F22 solid 2px;
-    color: #FFFFFF;
+    background: $base-text-color;
+    border: $base-text-color solid 2px;
+    color: $base-background-color;
 }
 
 .itemSizeSelector>button.active{
-    //TODO set variable in index
-    background: #1D1F22;
-    border: #1D1F22 solid 2px;
-    color: #FFFFFF;
+    background: $base-text-color;
+    border: $base-text-color solid 2px;
+    color: $base-background-color;
 }
 
 .itemColor{
@@ -169,9 +158,7 @@
     margin-bottom: 10px;
     line-height: 18px;
 
-    //TODO set variable in index
-
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .itemColorSelector{
@@ -180,7 +167,7 @@
 
 .itemColorSelector>button{
     display: inline;
-    border: #FFFFFF solid 1px;
+    border: $base-background-color solid 1px;
     width: 1.5vw;
     height: 3vh;
     margin-bottom: 2px;
@@ -188,13 +175,11 @@
 }
 
 .itemColorSelector>button.active{
-    //TODO set variable in index
-    box-shadow: 0 0 0 2px #5ECE7B;
+    box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .itemColorSelector>button:hover{
-    //TODO set variable in index
-    box-shadow: 0 0 0 2px #5ECE7B;
+    box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .itemCount{
@@ -218,8 +203,7 @@
 .itemCountDisplay{
     font-weight: 500;
     font-size: 16px;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
     margin: 15px;
 }
 
@@ -236,9 +220,8 @@
 
 .itemCount>button{
     display: inline-flex;
-    //TODO set variable in index
-    background: #FFFFFF;
-    border: #1D1F22 solid 2px;
+    background: $base-background-color;
+    border: $base-text-color solid 2px;
     width: 32px;
     height: 32px;
     font-weight: 300;
@@ -246,10 +229,9 @@
 }
 
 .itemCount>button:hover{
-    //TODO set variable in index
-    background: #1D1F22;
-    border: #1D1F22 solid 2px;
-    color: #FFFFFF;
+    background: $base-text-color;
+    border: $base-text-color solid 2px;
+    color: $base-background-color;
 }
 
 .total{
@@ -260,8 +242,7 @@
     font-size: 20px;
     line-height: 18px;
     margin-left: 20px;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 
 .sum{
@@ -273,8 +254,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 18px;
-    //TODO set variable in index
-    color: #1D1F22;
+    color: $base-text-color;
 }
 .priceLabel{
     padding: 40px 40px 40px 10px;
@@ -295,16 +275,14 @@
 
     text-transform: uppercase;
 
-    //TODO set variable in index
-    background: #FFFFFF;
-    border: #1D1F22 solid 2px;
-    color: #1D1F22;
+    background: $base-background-color;
+    border: $base-text-color solid 2px;
+    color: $base-text-color;
 }
 
 .viewButton:hover{
-    //TODO set variable in index
-    background: #1D1F22;
-    color: #FFFFFF;
+    background: $base-text-color;
+    color: $base-background-color;
 }
 
 .checkOutButton{
@@ -319,21 +297,19 @@
 
     padding: 12px 38px;
     margin-bottom: 20px;
-    //TODO set variable in index
-    background: #5ECE7B;
-    border: #5ECE7B solid 2px;
+    background: $base-active-color;
+    border: $base-active-color solid 2px;
 
-    color: #FFFFFF;
+    color: $base-background-color;
 }
 
 .checkOutButton>div{
-    color: #FFFFFF;
+    color: $base-background-color;
 }
 
 .checkOutButton:hover{
-    //TODO set variable in index
-    background: #4fad66;
-    border: #4fad66 solid 2px;
+    background: $base-active-selected-color;
+    border: $base-active-selected-color solid 2px;
 }
 
 .spacer{
@@ -352,7 +328,6 @@
     border-radius: 100%;
     font-size: 15px;
     position: absolute;
-    //TODO set variable in index
-    background: #1D1F22;
-    color: #ffffff;
+    background: $base-text-color;
+    color: $base-background-color;
 }

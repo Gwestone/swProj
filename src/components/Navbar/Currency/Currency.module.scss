@@ -1,12 +1,13 @@
+@import "../../../assets/css/const";
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
 .dropdownContent {
-    //TODO set variable in index
-    background: #ffffff;
+    background: $base-background-color;
     right: -2vw;
-    box-shadow: 0 0 50px -30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 50px -30px $base-text-color;
     display: none;
     position: absolute;
     min-width: 140px;
@@ -33,8 +34,7 @@
 }
 
 .dropdownContent div {
-    //TODO set variable in index
-    color: #1d1f22;
+    color: $base-text-color;
     padding: 25px 25px;
     text-decoration: none;
     font-weight: 500;
@@ -42,12 +42,12 @@
 }
 
 .dropdownContent>div:hover {
-    background: #fafafa;
+    background: $base-background-selected-color;
     cursor: pointer;
 }
 
 .dropdownContent>a.active {
-    background: #fafafa;
+    background: $base-background-selected-color
 }
 
 .dropdown:hover .dropdownContent {
@@ -55,7 +55,7 @@
 }
 
 .dropdown:hover .btn {
-    background: #fafafa;
+    background: $base-background-selected-color
 }
 
 .arrow{

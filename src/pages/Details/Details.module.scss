@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Roboto&family=Roboto+Condensed:wght@700&display=swap");
 
+@import "../../assets/css/const";
+
 .main {
   padding-top: 11vh;
   padding-left: 9vw;
@@ -37,17 +39,15 @@ div.gallery > img {
   width: fit-content;
   max-width: 120px;
   height: 110px;
-  border: #ffffff solid 1px;
+  border: $base-background-color solid 1px;
 }
 
 div.gallery > img:hover {
-  //TODO set variable in index
-  box-shadow: 0 0 0 1px #5ece7b;
+  box-shadow: 0 0 0 1px $base-active-color;
 }
 
 div.gallery > img.active {
-  //TODO set variable in index
-  box-shadow: 0 0 0 1px #5ece7b;
+  box-shadow: 0 0 0 1px $base-active-color;
 }
 
 .image > img {
@@ -69,7 +69,7 @@ div.gallery > img.active {
   font-weight: 600;
   font-size: 42px;
 
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .subtitle {
@@ -78,8 +78,7 @@ div.gallery > img.active {
   font-weight: 400;
   font-size: 45px;
 
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .label {
@@ -89,8 +88,7 @@ div.gallery > img.active {
   font-weight: 700;
   font-size: 24px;
 
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .textLabel {
@@ -100,8 +98,7 @@ div.gallery > img.active {
   font-weight: 700;
   font-size: 24px;
 
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 
   padding-top: 32px;
 }
@@ -113,8 +110,7 @@ div.gallery > img.active {
   font-weight: 700;
   font-size: 24px;
 
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 
   margin-top: 30px;
   padding-bottom: 10px;
@@ -128,8 +124,7 @@ div.gallery > img.active {
   font-weight: 700;
   font-size: 24px;
 
-  //TODO set variable in index
-  color: #1d1f22;
+  color: $base-text-color;
 
   margin-top: 47px;
   margin-bottom: 20px;
@@ -138,9 +133,8 @@ div.gallery > img.active {
 .buttonsGroup > button {
   width: 82px;
   height: 60px;
-  //TODO set variable in index
-  border: #1d1f22 solid 2px;
-  background: #ffffff;
+  border: $base-text-color solid 2px;
+  background: $base-background-color;
   margin-right: 10px;
   margin-top: 5px;
 
@@ -153,16 +147,14 @@ div.gallery > img.active {
 }
 
 .buttonsGroup > button:hover {
-  //TODO set variable in index
-  color: #ffffff;
-  background: #1d1f22;
+  color: $base-background-color;
+  background: $base-text-color;
 }
 
 .buttonsGroup > button.active {
-  //TODO set variable in index
-  color: #ffffff;
-  background: #1d1f22;
-  border: #ffffff solid 1px;
+  color: $base-background-color;
+  background: $base-text-color;
+  border: $base-background-color solid 1px;
 }
 
 .cardPrice {
@@ -171,43 +163,38 @@ div.gallery > img.active {
   padding-top: 20px;
   padding-bottom: 30px;
 
-  color: #1d1f22;
+  color: $base-text-color;
 }
 
 .pallet > button {
   margin-right: 10px;
   width: 42px;
   height: 42px;
-  //TODO set variable in index
-  border: #ffffff solid 1px;
+  border: $base-background-color solid 1px;
 }
 
 .pallet > button.active {
-  //TODO set variable in index
-  box-shadow: 0 0 0 2px #5ece7b;
+  box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .pallet > button:hover {
-  //TODO set variable in index
-  box-shadow: 0 0 0 2px #5ece7b;
+  box-shadow: 0 0 0 2px $base-active-color;
 }
 
 .addCart {
   font-weight: 600;
   font-size: 21px;
   line-height: 120%;
-  //TODO set variable in index
-  color: #ffffff;
+  color: $base-background-color;
   padding: 22px 125px;
-  background: #5ece7b;
+  background: $base-active-color;
   border: none;
 
   text-transform: uppercase;
 }
 
 .addCart:hover {
-  //TODO set variable in index
-  background: #4fad66;
+  background: $base-active-selected-color;
 }
 
 .description {

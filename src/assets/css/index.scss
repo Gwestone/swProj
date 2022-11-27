@@ -15,18 +15,15 @@ button{
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #ffffff;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(226, 226, 226, 0.89);
   //background: transparent;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
   //background: transparent;
