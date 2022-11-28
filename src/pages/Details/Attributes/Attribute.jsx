@@ -1,7 +1,12 @@
-import React  from "react";
+import React, {useEffect} from "react";
 import styles from "../Details.module.scss";
 
 function Attribute({onSelect, id, items, productAttributes, type, name}){
+
+    useEffect(()=>{
+        handleClick(id, items[0].id)
+    }, [])
+
   function handleClick(id, value) {
     onSelect(id, value);
   }

@@ -10,18 +10,11 @@ import { Navigate } from "react-router-dom";
 import parse from "html-react-parser";
 
 function Details({label, addCart, symbol}){
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     selectImage: 0,
-  //     productAttributes: {},
-  //     redirect: false,
-  //   };
-  // }
 
   const [selectImage, setSelectImage] = useState(0)
   const [productAttributes, setProductAttributes] = useState({})
   const [redirect, setRedirect] = useState(false)
+  const [rerenderFlag, setRerenderFlag] = useState(false)
 
   function getPrice(prices) {
     return prices.find((price) => {
@@ -36,6 +29,11 @@ function Details({label, addCart, symbol}){
   function handleSelect(id, value) {
     productAttributes[id] = value;
     setProductAttributes(productAttributes)
+    rerender();
+  }
+
+  function rerender(){
+    setRerenderFlag(!rerenderFlag);
   }
 
   function handleAddCart(id, productAttributes, prices) {
