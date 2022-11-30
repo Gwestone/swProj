@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap");
-
 @import "../../assets/css/const";
 
 .main {
@@ -27,16 +25,20 @@
 }
 
 @media screen and (min-width: 1075px) {
-  .products { grid-template-columns: repeat(2, 1fr); }
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (min-width: 1650px) {
-  .products { grid-template-columns: repeat(3, 1fr); }
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .product {
   background: $base-background-color;
-  width: 500px  ;
+  width: 500px;
   height: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -69,7 +71,6 @@
 }
 
 .cardPrice {
-
   font-weight: 500;
   margin-top: 2px;
   font-size: 25px;
@@ -116,4 +117,5 @@
   text-decoration: none;
 }
 
-.addToCart{}
+.addToCart {
+}

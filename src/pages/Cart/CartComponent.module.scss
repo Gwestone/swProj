@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto+Condensed:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Roboto&family=Roboto+Condensed:wght@700&display=swap");
-
 @import "../../assets/css/const";
 
 .main {
@@ -85,7 +81,6 @@
   margin-right: 38px;
 }
 
-
 .itemImgContainer {
   display: flex;
   justify-content: center;
@@ -101,7 +96,6 @@
 }
 
 .itemTitle {
-
   font-weight: 600;
   font-size: 41px;
   color: $base-text-color;
