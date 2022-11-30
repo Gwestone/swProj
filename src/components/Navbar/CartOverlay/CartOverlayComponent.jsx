@@ -1,4 +1,4 @@
-import styles from "./CartOverlay.module.scss";
+import styles from "./CartOverlayComponent.module.scss";
 import React from "react";
 import cartIcon from "../../../assets/svg/cart.svg";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { dimmerOff, dimmerOn } from "../../../app/dimmerSlicer";
 import Items from "./Items/Items";
 
-function CartOverlay({ currency, cart }) {
+function CartOverlayComponent({ currency, cart }) {
   //get amount of current selected currency
   //needs currency: state.currencies in props for work
   function getCurrencyAmount(prices) {
@@ -80,4 +80,6 @@ const stateToProps = (state) => {
   return { ...state.cart, currency: state.currency };
 };
 
-export default connect(stateToProps, { dimmerOn, dimmerOff })(CartOverlay);
+export default connect(stateToProps, { dimmerOn, dimmerOff })(
+  CartOverlayComponent
+);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../CartOverlay.module.scss";
+import styles from "../CartOverlayComponent.module.scss";
 import GET_PRODUCT from "../../../../queries/GET_PRODUCT";
 import { connect } from "react-redux";
 import {
@@ -37,55 +37,51 @@ function Item({
     //this.forceUpdate();
   }
 
-  const { loading, error, data } = useQuery(GET_PRODUCT, {
+  const { loading, data } = useQuery(GET_PRODUCT, {
     variables: { id: elemState.id },
   });
 
-  function unwrapProduct(loading, error, data) {
-    if (loading) return <div>Loading...</div>;
-    else {
-      const product = data.product;
-      return (
-        <div className={styles.item}>
-          <div className={styles.controls}>
-            <div className={styles.itemTitle}>
-              {product.name}
-              <br />
-              {product.brand}
-            </div>
-            <div className={styles.itemPrice}>
-              {symbol} {getCurrencyAmount(product.prices)}
-            </div>
-            <Attributes elem={elem} handleSelect={handleSelect} />
+  if (loading) return <div>Loading...</div>;
+  else {
+    const product = data.product;
+    return (
+      <div className={styles.item}>
+        <div className={styles.controls}>
+          <div className={styles.itemTitle}>
+            {product.name}
+            <br />
+            {product.brand}
           </div>
-          <div className={styles.itemCount}>
-            <button
-              className={styles.itemPlus}
-              onClick={() => {
-                incrementQuantityCart(itemKey);
-              }}
-            >
-              <div className={styles.text}>+</div>
-            </button>
-            <div className={styles.itemCountDisplay}>{elem.quantity}</div>
-            <button
-              className={styles.itemMinus}
-              onClick={() => {
-                decrementQuantityCart(itemKey);
-              }}
-            >
-              <div className={styles.text}>&#8211;</div>
-            </button>
+          <div className={styles.itemPrice}>
+            {symbol} {getCurrencyAmount(product.prices)}
           </div>
-          <div className={styles.itemImgContainer}>
-            <img className={styles.itemImg} src={product.gallery[0]} alt="" />
-          </div>
+          <Attributes elem={elem} handleSelect={handleSelect} />
         </div>
-      );
-    }
+        <div className={styles.itemCount}>
+          <button
+            className={styles.itemPlus}
+            onClick={() => {
+              incrementQuantityCart(itemKey);
+            }}
+          >
+            <div className={styles.text}>+</div>
+          </button>
+          <div className={styles.itemCountDisplay}>{elem.quantity}</div>
+          <button
+            className={styles.itemMinus}
+            onClick={() => {
+              decrementQuantityCart(itemKey);
+            }}
+          >
+            <div className={styles.text}>&#8211;</div>
+          </button>
+        </div>
+        <div className={styles.itemImgContainer}>
+          <img className={styles.itemImg} src={product.gallery[0]} alt="" />
+        </div>
+      </div>
+    );
   }
-
-  return <>{unwrapProduct(loading, error, data)}</>;
 }
 
 const stateToProps = (state) => {

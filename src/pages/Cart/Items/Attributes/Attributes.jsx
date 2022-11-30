@@ -1,4 +1,4 @@
-import GET_ATTRIBUTES from "../../../../../queries/GET_ATTRIBUTES";
+import GET_ATTRIBUTES from "../../../../queries/GET_ATTRIBUTES";
 import Attribute from "./Attribute";
 import React from "react";
 import { useQuery } from "@apollo/client";

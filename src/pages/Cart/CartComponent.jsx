@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Cart.module.scss";
+import styles from "./CartComponent.module.scss";
 import Items from "./Items/Items";
 import { connect } from "react-redux";
 
-function Cart({ currency, cart }) {
+function CartComponent({ currency, cart }) {
   function getCurrencyAmount(prices) {
     return prices.find((price) => {
       return price.currency.label === currency.label;
@@ -64,4 +64,4 @@ const stateToProps = (state) => {
   return { ...state.cart, currency: state.currency };
 };
 
-export default connect(stateToProps, null)(Cart);
+export default connect(stateToProps, null)(CartComponent);

@@ -1,11 +1,10 @@
-import React, {useEffect} from "react";
-import styles from "../Details.module.scss";
+import React, { useEffect } from "react";
+import styles from "../DetailsComponent.module.scss";
 
-function Attribute({onSelect, id, items, productAttributes, type, name}){
-
-    useEffect(()=>{
-        handleClick(id, items[0].id)
-    }, [])
+function Attribute({ onSelect, id, items, productAttributes, type, name }) {
+  useEffect(() => {
+    handleClick(id, items[0].id);
+  }, []);
 
   function handleClick(id, value) {
     onSelect(id, value);
@@ -60,7 +59,6 @@ function Attribute({onSelect, id, items, productAttributes, type, name}){
   }
 
   return <div className="attributes">{renderSelectors()}</div>;
-
 }
 
 export default Attribute;

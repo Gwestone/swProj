@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../CartOverlay.module.scss";
+import styles from "../../CartOverlayComponent.module.scss";
 
 //(AttributeButtons)isolated logic of every cart->item->attribute->attributeButton
 function AttributeButtons({ handleSelect, attribute, elem }) {

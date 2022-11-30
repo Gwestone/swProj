@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "../Main.module.scss";
+import styles from "../MainComponent.module.scss";
 import buyIcon from "../../../assets/svg/buyIcon.svg";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../../../app/cartSlicer";
 
-function Product({data, currency, addCart}){
-
+function Product({ data, currency, addCart }) {
   function getCurrencyAmount(prices) {
     return prices.find((price) => {
       return price.currency.symbol === currency.symbol;
@@ -42,56 +41,56 @@ function Product({data, currency, addCart}){
         </button>
       );
   }
-    /**
-     * @param {{ id: string,
-     *          name: string,
-     *          brand: string,
-     *          inStock: boolean,
-     *          prices: [{
-     *              currency: {
-     *                  label: string,
-     *                  symbol: string
-     *              },
-     *              amount: number
-     *          }],
-     *          gallery: [string],
-     *          attributes: [{
-     *
-     *          }]
-     *        }} data
-     */
+  /**
+   * @param {{ id: string,
+   *          name: string,
+   *          brand: string,
+   *          inStock: boolean,
+   *          prices: [{
+   *              currency: {
+   *                  label: string,
+   *                  symbol: string
+   *              },
+   *              amount: number
+   *          }],
+   *          gallery: [string],
+   *          attributes: [{
+   *
+   *          }]
+   *        }} data
+   */
 
-    return (
-      <div className={styles.product}>
-        <div className={!data.inStock ? styles.cardStockOut : ""}>
-          <Link to={`/details/${data.id}`} className={styles.link}>
-            <div className={styles.card}>
-              <div className={styles.imgContainer}>
-                {/*round green cart button*/}
-                {renderAddButton(data)}
-                {!data.inStock ? (
-                  <div className={styles.outStock}>Out of Stock</div>
-                ) : (
-                  ""
-                )}
-                <img
-                  className={styles.cardImage}
-                  src={data.gallery[0]}
-                  alt={""}
-                ></img>
-              </div>
-              <br />
-              <div className={styles.cardTitle}>
-                {data.name} {data.brand}
-              </div>
-              <h5 className={styles.cardPrice}>
-                {currency.symbol} {getCurrencyAmount(data.prices)}
-              </h5>
+  return (
+    <div className={styles.product}>
+      <div className={!data.inStock ? styles.cardStockOut : ""}>
+        <Link to={`/details/${data.id}`} className={styles.link}>
+          <div className={styles.card}>
+            <div className={styles.imgContainer}>
+              {/*round green cart button*/}
+              {renderAddButton(data)}
+              {!data.inStock ? (
+                <div className={styles.outStock}>Out of Stock</div>
+              ) : (
+                ""
+              )}
+              <img
+                className={styles.cardImage}
+                src={data.gallery[0]}
+                alt={""}
+              ></img>
             </div>
-          </Link>
-        </div>
+            <br />
+            <div className={styles.cardTitle}>
+              {data.name} {data.brand}
+            </div>
+            <h5 className={styles.cardPrice}>
+              {currency.symbol} {getCurrencyAmount(data.prices)}
+            </h5>
+          </div>
+        </Link>
       </div>
-    );
+    </div>
+  );
 }
 
 const currencyStateToProps = (state) => {

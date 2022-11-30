@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../Cart.module.scss";
+import styles from "../../CartComponent.module.scss";
 
 function AttributeButtons({ elem, attribute, handleSelect }) {
   return (

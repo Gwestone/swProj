@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "./assets/css/App.scss";
-import Navbar from "./components/Navbar/Navbar";
+import NavbarComponent from "./components/Navbar/NavbarComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main/Main";
-import Details from "./pages/Details/Details";
-import Cart from "./pages/Cart/Cart";
+import Main from "./pages/Main/MainComponent";
+import Details from "./pages/Details/DetailsComponent";
+import Cart from "./pages/Cart/CartComponent";
 
 class App extends Component {
   render() {
     return (
       <>
         <BrowserRouter>
-          <Navbar />
+          <NavbarComponent />
           <Routes>
             <Route path={"/"} element={<Main />} />
             <Route path="/details/:id" element={<Details />} />
