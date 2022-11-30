@@ -5,15 +5,16 @@ import { connect } from "react-redux";
 import Attributes from "./Attributes/Attributes";
 import Gallery from "./Gallery";
 import { addCart } from "../../app/cartSlicer";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 import { useQuery } from "@apollo/client";
 
 function DetailsComponent({ label, addCart, symbol }) {
   const [selectImage, setSelectImage] = useState(0);
   const [productAttributes, setProductAttributes] = useState({});
-  const [redirect, setRedirect] = useState(false);
   const [rerenderFlag, setRerenderFlag] = useState(false);
+
+  const navigate = useNavigate();
 
   function getPrice(prices) {
     return prices.find((price) => {
@@ -42,7 +43,7 @@ function DetailsComponent({ label, addCart, symbol }) {
       quantity: 1,
       prices: prices,
     });
-    setRedirect(true);
+    navigate("/");
   }
 
   function renderBuyButton(product, id) {
@@ -92,56 +93,46 @@ function DetailsComponent({ label, addCart, symbol }) {
    *     }} data
    *     @param loading boolean
    */
-  function unwrapProduct(loading, data) {
-    if (loading) return <div>Loading...</div>;
-    else {
-      const product = data.product;
-      return (
-        <div className={styles.main}>
-          <div className={styles.content}>
-            <Gallery
-              product={product}
-              onHover={(key) => handleHover(key)}
-              selectedImage={selectImage}
+  if (loading) return <div>Loading...</div>;
+  else {
+    const product = data.product;
+    return (
+      <div className={styles.main}>
+        <div className={styles.content}>
+          <Gallery
+            product={product}
+            onHover={(key) => handleHover(key)}
+            selectedImage={selectImage}
+          />
+          <div className={styles.image}>
+            <img src={product.gallery[selectImage]} alt={""} />
+          </div>
+          <div className={styles.controls}>
+            <div className={styles.title}>{product.name}</div>
+            <div className={styles.subtitle}>{product.brand}</div>
+            {/*make 1*/}
+            <Attributes
+              attributes={product.attributes}
+              onSelect={(id, value) => {
+                handleSelect(id, value);
+              }}
+              productAttributes={productAttributes}
             />
-            <div className={styles.image}>
-              <img src={product.gallery[selectImage]} alt={""} />
+            <div className={styles.costLabel}>Price:</div>
+            <div className={styles.cost}>
+              {symbol} {getPrice(product.prices)}
             </div>
-            <div className={styles.controls}>
-              <div className={styles.title}>{product.name}</div>
-              <div className={styles.subtitle}>{product.brand}</div>
-              {/*make 1*/}
-              <Attributes
-                attributes={product.attributes}
-                onSelect={(id, value) => {
-                  handleSelect(id, value);
-                }}
-                productAttributes={productAttributes}
-              />
-              <div className={styles.costLabel}>Price:</div>
-              <div className={styles.cost}>
-                {symbol} {getPrice(product.prices)}
-              </div>
-              {/*buy button*/}
-              <div>{renderBuyButton(product, id)}</div>
-              {/*description*/}
-              <div className={styles.description}>
-                {parse(product.description)}
-              </div>
+            {/*buy button*/}
+            <div>{renderBuyButton(product, id)}</div>
+            {/*description*/}
+            <div className={styles.description}>
+              {parse(product.description)}
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
-
-  //TODO: rewrite redirect function and refactor unwrap function
-  return (
-    <>
-      {unwrapProduct(loading, data)}
-      {redirect ? <Navigate to={"/"} /> : ""}
-    </>
-  );
 }
 
 const currencyStateToProps = (state) => {
