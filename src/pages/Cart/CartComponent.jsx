@@ -4,12 +4,14 @@ import Items from "./Items/Items";
 import { connect } from "react-redux";
 
 function CartComponent({ currency, cart }) {
+  //get amount of currency for currently selected currency
   function getCurrencyAmount(prices) {
     return prices.find((price) => {
       return price.currency.label === currency.label;
     }).amount;
   }
 
+  //calc final price for all order
   function calcPrice() {
     let ans = 0;
     cart.forEach((item) => {
@@ -18,6 +20,7 @@ function CartComponent({ currency, cart }) {
     return ans.toFixed(2);
   }
 
+  //calc final amount for all order
   function getCount() {
     let ans = 0;
     cart.forEach((item) => {
@@ -42,6 +45,7 @@ function CartComponent({ currency, cart }) {
             Total:{" "}
           </div>
         </div>
+        {/*render final amount and price for order*/}
         <div className={styles.numbers}>
           <div className={styles.number}>
             {currency.symbol} {(calcPrice() * 0.21).toFixed(2)}
@@ -59,6 +63,8 @@ function CartComponent({ currency, cart }) {
     </div>
   );
 }
+
+//connect to redux
 
 const stateToProps = (state) => {
   return { ...state.cart, currency: state.currency };

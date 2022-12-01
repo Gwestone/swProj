@@ -5,17 +5,21 @@ import { connect } from "react-redux";
 import LoadCurrencies from "./LoadCurrencies/LoadCurrencies";
 
 function CurrencyComponent({ symbol, label, setCurrency }) {
+  //translate currency to global redux state
+
   function handleCurrencySelect(symbol, label) {
     setCurrency({ symbol: symbol, label: label });
   }
 
   return (
     <div className={styles.dropdown}>
+      {/*navbar button*/}
       <button className={styles.btn}>
         <div className={styles.currencyIcon}>{symbol}</div>
         <img className={styles.arrow} src={arrow} alt="" />
       </button>
 
+      {/*dropdown*/}
       <div className={styles.dropdownContent}>
         <LoadCurrencies
           currentCurrency={label}

@@ -35,6 +35,7 @@ function CartOverlayComponent({ currency, cart }) {
 
   return (
     <div className={styles.dropdown}>
+      {/*button on navbar with items count badge*/}
       <button className={styles.btn}>
         <img className={styles.icon} src={cartIcon} alt="" />
         {getCount() > 0 ? <div className={styles.badge}>{getCount()}</div> : ""}
@@ -71,6 +72,8 @@ function CartOverlayComponent({ currency, cart }) {
     </div>
   );
 }
+
+//connect data to redux
 
 const stateToProps = (state) => {
   return { ...state.cart, currency: state.currency };

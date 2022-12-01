@@ -8,16 +8,14 @@ import { useQuery } from "@apollo/client";
 function CategoriesComponent({ value, setCategory }) {
   const { loading, data } = useQuery(GET_CATEGORIES);
 
-  function handleClick(id) {
-    setCategory(id);
-  }
-
+  //if query is loading show this message
   if (loading)
     return (
       <ul className={styles.categories}>
         <div>...</div>
       </ul>
     );
+  //if data loaded render actual data
   else
     return (
       <ul className={styles.categories}>
@@ -25,7 +23,7 @@ function CategoriesComponent({ value, setCategory }) {
           <Category
             name={name}
             key={index}
-            onClick={() => handleClick(name)}
+            onClick={() => setCategory(name)}
             active={value === name}
           />
         ))}
@@ -37,6 +35,7 @@ const categoryStateToProps = (state) => {
   return state.category;
 };
 
+//connect data to redux
 export default connect(categoryStateToProps, { setCategory })(
   CategoriesComponent
 );

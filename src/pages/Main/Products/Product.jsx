@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "../MainComponent.module.scss";
-import buyIcon from "../../../assets/svg/buyIcon.svg";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCart } from "../../../app/cartSlicer";
+import AddButton from "./AddButton";
 
 function Product({ data, currency, addCart }) {
+  //get amount of currency for current selected currency
   function getCurrencyAmount(prices) {
     return prices.find((price) => {
       return price.currency.symbol === currency.symbol;
@@ -28,19 +29,6 @@ function Product({ data, currency, addCart }) {
     });
   }
 
-  function renderAddButton(data) {
-    if (data.inStock)
-      return (
-        <button
-          className={styles.addToCart}
-          onClick={(e) =>
-            handleAddCart(e, data.id, data.attributes, data.prices)
-          }
-        >
-          <img className={styles.buyIcon} src={buyIcon} alt="" />
-        </button>
-      );
-  }
   /**
    * @param {{ id: string,
    *          name: string,
@@ -63,16 +51,19 @@ function Product({ data, currency, addCart }) {
   return (
     <div className={styles.product}>
       <div className={!data.inStock ? styles.cardStockOut : ""}>
+        {/*render custom link to details*/}
         <Link to={`/details/${data.id}`} className={styles.link}>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
               {/*round green cart button*/}
-              {renderAddButton(data)}
+              <AddButton data={data} handleAddCart={handleAddCart} />
+              {/*if in stock render as available*/}
               {!data.inStock ? (
                 <div className={styles.outStock}>Out of Stock</div>
               ) : (
                 ""
               )}
+              {/*show first image from gallery*/}
               <img
                 className={styles.cardImage}
                 src={data.gallery[0]}
@@ -80,6 +71,7 @@ function Product({ data, currency, addCart }) {
               ></img>
             </div>
             <br />
+            {/*show data from server */}
             <div className={styles.cardTitle}>
               {data.name} {data.brand}
             </div>

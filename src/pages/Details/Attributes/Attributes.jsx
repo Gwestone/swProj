@@ -5,6 +5,7 @@ function Attributes({ attributes, productAttributes }) {
   return (
     <div className="attributes">
       {" "}
+      {/*render many attributes collections*/}
       {attributes.map((elem, index) => {
         return (
           <Attribute

@@ -17,26 +17,31 @@ function DetailsComponent({ label, addCart, symbol }) {
 
   const navigate = useNavigate();
 
+  //get price for current selected currency
   function getPrice(prices) {
     return prices.find((price) => {
       return price.currency.label === label;
     }).amount;
   }
 
+  //wrap for setSelectImage
   function handleHover(key) {
     setSelectImage(key);
   }
 
+  //handle selection and reselection of attributes
   function handleSelect(id, value) {
     productAttributes[id] = value;
     setProductAttributes(productAttributes);
     rerender();
   }
 
+  //hack to rerender component
   function rerender() {
     setRerenderFlag(!rerenderFlag);
   }
 
+  //wrapper to add cart
   function handleAddCart(id, productAttributes, prices) {
     addCart({
       id: id,
@@ -100,17 +105,21 @@ function DetailsComponent({ label, addCart, symbol }) {
     return (
       <div className={styles.main}>
         <div className={styles.content}>
+          {/*image election for images*/}
           <Gallery
             product={product}
             onHover={(key) => handleHover(key)}
             selectedImage={selectImage}
           />
+          {/*biggest image*/}
           <div className={styles.image}>
             <img src={product.gallery[selectImage]} alt={""} />
           </div>
           <div className={styles.controls}>
+            {/*text title and brand*/}
             <div className={styles.title}>{product.name}</div>
             <div className={styles.subtitle}>{product.brand}</div>
+            {/*attributes*/}
             {/*wrapped with context to provide data link to attribute component*/}
             <AttributeContext.Provider value={handleSelect}>
               <Attributes
@@ -135,6 +144,8 @@ function DetailsComponent({ label, addCart, symbol }) {
     );
   }
 }
+
+//connect to redux
 
 const currencyStateToProps = (state) => {
   return state.currency;

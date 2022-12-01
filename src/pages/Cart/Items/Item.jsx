@@ -91,8 +91,10 @@ function Item({
     return (
       <div className={styles.elem}>
         <div className={styles.controls}>
+          {/*title data for products*/}
           <div className={styles.itemTitle}>{product.name}</div>
           <div className={styles.itemSubtitle}>{product.brand}</div>
+          {/*price and currency for separate product */}
           <div className={styles.itemPrice}>
             {symbol} {getCurrencyAmount(product.prices)}
           </div>
@@ -100,7 +102,9 @@ function Item({
             <Attributes elem={elem} />
           </AttributeContext.Provider>
         </div>
+        {/*amount and controls for separate product */}
         <div className={styles.itemCount}>
+          {/*button to increase separate product*/}
           <button
             className={styles.itemPlus}
             onClick={() => {
@@ -109,7 +113,9 @@ function Item({
           >
             +
           </button>
+          {/*amount for separate product */}
           <div className={styles.itemCountDisplay}>{elem.quantity}</div>
+          {/*button to decrease separate product*/}
           <button
             className={styles.itemMinus}
             onClick={() => {
@@ -125,6 +131,7 @@ function Item({
             src={product.gallery[galleryElem]}
             alt=""
           />
+          {/*switch controls for images*/}
           <div className={styles.switchGroup}>
             <div>
               {renderDecreaseButton(product)}

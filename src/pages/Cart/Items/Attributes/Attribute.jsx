@@ -5,6 +5,7 @@ import AttributeButtons from "./AttributeButtons";
 function Attribute({ attribute, elem }) {
   return (
     <div>
+      {/*render label for attributes*/}
       <div className={styles.itemSize}>{attribute.name}:</div>
       <div
         className={
@@ -13,6 +14,7 @@ function Attribute({ attribute, elem }) {
             : styles.itemColorSelector
         }
       >
+        {/*render attribute buttons*/}
         <AttributeButtons elem={elem} attribute={attribute} />
       </div>
     </div>

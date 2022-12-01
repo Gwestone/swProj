@@ -3,6 +3,8 @@ import Item from "./Item";
 import { connect } from "react-redux";
 
 function Items({ cart }) {
+  //render all items in cart
+
   return (
     <>
       {cart.map((elem, index) => {

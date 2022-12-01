@@ -8,6 +8,7 @@ function Attributes({ elem }) {
     variables: { id: elem.id },
   });
 
+  //wait until data is loading
   if (loading) return <div>loading...</div>;
   else
     return data.product.attributes.map((attribute, index) => {

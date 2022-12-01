@@ -33,9 +33,11 @@ function ProductsComponent({ value }) {
    * }} data
    */
 
+  //wait to load data from server
   if (loading && error == null) return <div>...</div>;
   else if (error != null) return <>error</>;
-  else
+  else {
+    //render data from server
     return (
       <div className={styles.products}>
         {data.category.products.map((data, index) => (
@@ -43,6 +45,7 @@ function ProductsComponent({ value }) {
         ))}
       </div>
     );
+  }
 }
 
 const currencyStateToProps = (state) => {

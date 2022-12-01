@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <>
         <BrowserRouter>
+          {/*implementation of router*/}
           <NavbarComponent />
           <Routes>
             <Route path={"/"} element={<Main />} />

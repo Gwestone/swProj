@@ -7,6 +7,7 @@ function AttributeButtons({ elem, attribute }) {
 
   return (
     <>
+      {/*render all attributes buttons depends on type of data*/}
       {attribute.items.map((attributeOption, index) => {
         if (attribute.type === "text")
           return (

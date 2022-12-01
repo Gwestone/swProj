@@ -2,10 +2,7 @@ import React from "react";
 import styles from "./DetailsComponent.module.scss";
 
 function Gallery({ product, selectImage, onHover }) {
-  function handleHover(key) {
-    onHover(key);
-  }
-
+  //render list of selection images
   return (
     <>
       <div className={styles.gallery}>
@@ -17,7 +14,7 @@ function Gallery({ product, selectImage, onHover }) {
               alt={""}
               key={index}
               onMouseOver={() => {
-                handleHover(index);
+                onHover(index);
               }}
             />
           );

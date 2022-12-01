@@ -1,6 +1,7 @@
 import styles from "../NavbarComponent.module.scss";
 import { Link } from "react-router-dom";
 
+//render category ui element
 function Category({ active = false, onClick, name = "not found" }) {
   return (
     <li
