@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../../CartOverlayComponent.module.scss";
+import { AttributeContext } from "../../../../../context/AttributeContext";
 
 //(AttributeButtons)isolated logic of every cart->item->attribute->attributeButton
-function AttributeButtons({ handleSelect, attribute, elem }) {
+function AttributeButtons({ attribute, elem }) {
+  const handleSelect = useContext(AttributeContext);
+
   return (
     <>
       {attribute.items.map((attributeOption, index) => {

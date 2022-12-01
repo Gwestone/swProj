@@ -34,11 +34,7 @@ function CartOverlayComponent({ currency, cart }) {
   }
 
   return (
-    <div
-      className={styles.dropdown}
-      // onMouseOver={() => this.props.dimmerOn()}
-      // onMouseLeave={() => this.props.dimmerOff()}
-    >
+    <div className={styles.dropdown}>
       <button className={styles.btn}>
         <img className={styles.icon} src={cartIcon} alt="" />
         {getCount() > 0 ? <div className={styles.badge}>{getCount()}</div> : ""}

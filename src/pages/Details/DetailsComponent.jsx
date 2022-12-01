@@ -8,6 +8,7 @@ import { addCart } from "../../app/cartSlicer";
 import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 import { useQuery } from "@apollo/client";
+import { AttributeContext } from "../../context/AttributeContext";
 
 function DetailsComponent({ label, addCart, symbol }) {
   const [selectImage, setSelectImage] = useState(0);
@@ -110,14 +111,14 @@ function DetailsComponent({ label, addCart, symbol }) {
           <div className={styles.controls}>
             <div className={styles.title}>{product.name}</div>
             <div className={styles.subtitle}>{product.brand}</div>
-            {/*make 1*/}
-            <Attributes
-              attributes={product.attributes}
-              onSelect={(id, value) => {
-                handleSelect(id, value);
-              }}
-              productAttributes={productAttributes}
-            />
+            {/*wrapped with context to provide data link to attribute component*/}
+            <AttributeContext.Provider value={handleSelect}>
+              <Attributes
+                attributes={product.attributes}
+                productAttributes={productAttributes}
+              />
+            </AttributeContext.Provider>
+
             <div className={styles.costLabel}>Price:</div>
             <div className={styles.cost}>
               {symbol} {getPrice(product.prices)}

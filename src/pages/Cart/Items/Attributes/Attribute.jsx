@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../CartComponent.module.scss";
 import AttributeButtons from "./AttributeButtons";
 
-function Attribute({ attribute, elem, handleSelect }) {
+function Attribute({ attribute, elem }) {
   return (
     <div>
       <div className={styles.itemSize}>{attribute.name}:</div>
@@ -13,11 +13,7 @@ function Attribute({ attribute, elem, handleSelect }) {
             : styles.itemColorSelector
         }
       >
-        <AttributeButtons
-          elem={elem}
-          attribute={attribute}
-          handleSelect={handleSelect}
-        />
+        <AttributeButtons elem={elem} attribute={attribute} />
       </div>
     </div>
   );

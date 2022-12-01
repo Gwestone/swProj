@@ -9,6 +9,7 @@ import {
 } from "../../../app/cartSlicer";
 import { useQuery } from "@apollo/client";
 import Attributes from "./Attributes/Attributes";
+import { AttributeContext } from "../../../context/AttributeContext";
 
 function Item({
   label,
@@ -95,7 +96,9 @@ function Item({
           <div className={styles.itemPrice}>
             {symbol} {getCurrencyAmount(product.prices)}
           </div>
-          <Attributes elem={elem} handleSelect={handleSelect} />
+          <AttributeContext.Provider value={handleSelect}>
+            <Attributes elem={elem} />
+          </AttributeContext.Provider>
         </div>
         <div className={styles.itemCount}>
           <button

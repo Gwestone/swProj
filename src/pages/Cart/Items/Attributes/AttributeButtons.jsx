@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../../CartComponent.module.scss";
+import { AttributeContext } from "../../../../context/AttributeContext";
 
-function AttributeButtons({ elem, attribute, handleSelect }) {
+function AttributeButtons({ elem, attribute }) {
+  const handleSelect = useContext(AttributeContext);
+
   return (
     <>
       {attribute.items.map((attributeOption, index) => {

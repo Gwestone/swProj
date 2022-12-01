@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../DetailsComponent.module.scss";
+import { AttributeContext } from "../../../context/AttributeContext";
 
-function Attribute({ onSelect, id, items, productAttributes, type, name }) {
+function Attribute({ id, items, productAttributes, type, name }) {
+  const onSelect = useContext(AttributeContext);
+
   useEffect(() => {
     onSelect(id, items[0].id);
 

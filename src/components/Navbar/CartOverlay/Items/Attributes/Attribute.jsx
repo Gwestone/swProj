@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../CartOverlayComponent.module.scss";
 import AttributeButtons from "./AttributeButtons";
 
-function Attribute({ handleSelect, attribute, elem }) {
+function Attribute({ attribute, elem }) {
   return (
     <div>
       <div className={styles.itemSize}>{attribute.name}:</div>
@@ -13,11 +13,7 @@ function Attribute({ handleSelect, attribute, elem }) {
             : styles.itemColorSelector
         }
       >
-        <AttributeButtons
-          elem={elem}
-          attribute={attribute}
-          handleSelect={(id, value) => handleSelect(id, value)}
-        />
+        <AttributeButtons elem={elem} attribute={attribute} />
       </div>
     </div>
   );
