@@ -16,7 +16,7 @@ const defaultOptions = {
     errorPolicy: "ignore",
   },
   query: {
-    fetchPolicy: "no-cache",
+    fetchPolicy: "cache-first",
     errorPolicy: "all",
   },
 };
