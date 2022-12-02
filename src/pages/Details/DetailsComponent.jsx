@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 import { useQuery } from "@apollo/client";
 import { AttributeContext } from "../../context/AttributeContext";
-
 function DetailsComponent({ label, addCart, symbol }) {
   const [selectImage, setSelectImage] = useState(0);
   const [productAttributes, setProductAttributes] = useState({});

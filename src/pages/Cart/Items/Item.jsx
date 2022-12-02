@@ -122,7 +122,7 @@ function Item({
               decrementQuantityCart(itemKey);
             }}
           >
-            _
+            <div className={styles.itemMinusWrapper}>-</div>
           </button>
         </div>
         <div className={styles.itemImgContainer}>

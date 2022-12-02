@@ -82,6 +82,7 @@
 }
 
 .itemImgContainer {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,17 +161,15 @@
 }
 
 .itemCount > button {
-  margin-right: 10px;
   display: inline-flex;
-  align-items: center;
-  padding-left: 15px;
   background: $base-background-color;
   border: $base-text-color solid 2px;
   width: 60px;
   height: 60px;
   font-weight: 300;
-  font-size: 50px;
-  font-family: serif;
+  font-size: 85px;
+  line-height: 69%;
+  padding-left: 10px;
 }
 
 .itemCount > button:hover {
@@ -182,6 +181,11 @@
   margin-top: auto;
   padding-bottom: 55px;
   padding-right: 40px;
+}
+
+.itemMinusWrapper{
+  line-height: 55%;
+  font-weight: 300;
 }
 
 .label {
@@ -233,11 +237,9 @@
 .switchGroup {
   float: right;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 20px;
+  bottom: 10px;
   z-index: 1000;
-  margin-bottom: 10px;
-  margin-right: 10px;
 }
 
 .switchGroup > div > button {

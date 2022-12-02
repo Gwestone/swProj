@@ -25,7 +25,6 @@
 }
 
 .content > * {
-  align-text: center;
   /*background-color: lightgreen;*/
   height: 850px;
 }
@@ -86,7 +85,7 @@ div.gallery > img.active {
 }
 
 .textLabel {
-  font-family: "Roboto Condensed", serif;
+  font-family: "Roboto", serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 24px;
@@ -109,7 +108,7 @@ div.gallery > img.active {
 }
 
 .costLabel {
-  font-family: "Roboto Condensed", serif;
+  font-family: "Roboto", serif;
   text-transform: uppercase;
   font-style: normal;
   font-weight: 700;
@@ -175,7 +174,7 @@ div.gallery > img.active {
 .addCart {
   font-weight: 600;
   font-size: 21px;
-  line-height: 120%;
+  line-height: 100%;
   color: $base-background-color;
   padding: 22px 125px;
   background: $base-active-color;
